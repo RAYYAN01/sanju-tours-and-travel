@@ -30,7 +30,7 @@ export const PACKAGES: Package[] = [
     ],
     vehicleRecommendation: 'Innova Crysta (6-7 pax) or 12 Seater Tempo Traveller',
     pricingLabel: 'Custom quote based on group size',
-    imageUrl: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1000&q=80'
+    imageUrl: '/assets/destination_dandeli.jpeg'
   },
   {
     id: 'chalukya-heritage',
@@ -47,7 +47,7 @@ export const PACKAGES: Package[] = [
     ],
     vehicleRecommendation: 'Dzire / Ertiga / 12-17 Seater Tempo Traveller',
     pricingLabel: 'Custom quote based on group size',
-    imageUrl: 'https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=1000&q=80'
+    imageUrl: '/assets/destination_badami.jpeg'
   },
   {
     id: 'hampi-empire',
@@ -82,6 +82,6 @@ export const PACKAGES: Package[] = [
     ],
     vehicleRecommendation: 'Innova Crysta / 17-Seater Tempo Traveller',
     pricingLabel: 'Custom quote based on group size',
-    imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80'
+    imageUrl: '/assets/destination_gokarna.jpeg'
   }
 ];
