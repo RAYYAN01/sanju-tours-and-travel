@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Cookie } from 'lucide-react';
 
 const CONSENT_KEY = 'stt-cookie-consent';
@@ -62,7 +63,14 @@ export const CookieConsent: React.FC = () => {
             <p className="text-xs text-[#200f07]/70 leading-relaxed mt-0.5">
               Essential cookies keep this site working. Choose <span className="font-semibold text-[#200f07]">Accept</span> to
               also allow analytics that help us understand traffic, or <span className="font-semibold text-[#200f07]">Reject</span> to
-              keep only what's necessary.
+              keep only what's necessary. See our{' '}
+              <Link
+                to="/privacy"
+                className="font-semibold text-[#200f07] underline decoration-[#200f07]/30 underline-offset-2 hover:decoration-[#200f07]"
+              >
+                Privacy Policy
+              </Link>
+              .
             </p>
           </div>
         </div>

@@ -48,6 +48,11 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     description:
       'Call or WhatsApp our Hubballi dispatch desk on +91 73381 48518 for instant quotes, airport pickups and outstation bookings. Office at Unkal, P.B. Road, Hubli.',
   },
+  '/privacy': {
+    title: 'Privacy Policy | Sanju Tours & Travels',
+    description:
+      'How Sanju Tours & Travels collects, uses, shares and protects your personal data, and your rights under India’s Digital Personal Data Protection Act, 2023.',
+  },
 };
 
 // Human-readable crumb label per route, for BreadcrumbList schema.
@@ -58,6 +63,7 @@ export const PAGE_CRUMB: Record<string, string> = {
   '/destinations': 'Destinations',
   '/packages': 'Tour Packages',
   '/contact': 'Contact',
+  '/privacy': 'Privacy Policy',
 };
 
 // Routes whose hero sits full-bleed behind the navbar — these get the

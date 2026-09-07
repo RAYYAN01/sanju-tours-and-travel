@@ -141,9 +141,15 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="pt-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#fff9eb]/60">
-          <p>© {new Date().getFullYear()} Sanju Tours &amp; Travels. All rights reserved.</p>
+          <p className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
+            <span>© {new Date().getFullYear()} Sanju Tours &amp; Travels. All rights reserved.</span>
+            <span className="text-[#fff9eb]/25" aria-hidden="true">·</span>
+            <Link to="/privacy" className="hover:text-white underline decoration-[#fff9eb]/20 underline-offset-2 hover:decoration-white transition-colors">
+              Privacy Policy
+            </Link>
+          </p>
           <div className="flex items-center gap-6">
-            <span>Reliable cab &amp; vehicle rental in Hubballi, Karnataka</span>
+            <span className="hidden sm:inline">Reliable cab &amp; vehicle rental in Hubballi, Karnataka</span>
             <button
               type="button"
               onClick={scrollToTop}
