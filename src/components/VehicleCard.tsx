@@ -129,7 +129,7 @@ export const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle }) => {
         <button
           type="button"
           onClick={handleWhatsApp}
-          className="w-10 h-10 rounded-lg bg-[#200f07] hover:opacity-90 text-white flex items-center justify-center shrink-0 transition-colors shadow-sm"
+          className="w-10 h-10 rounded-lg bg-[#200f07] border border-[#c5e384]/40 text-[#c5e384] hover:bg-[#c5e384] hover:text-[#200f07] flex items-center justify-center shrink-0 transition-colors shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-[#c5e384] focus-visible:ring-offset-1"
           title={`Enquire on WhatsApp about ${vehicle.name}`}
           aria-label={`Enquire on WhatsApp about ${vehicle.name}`}
         >
@@ -138,7 +138,7 @@ export const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle }) => {
 
         <a
           href={PHONE_TEL_HREF}
-          className="w-10 h-10 rounded-lg bg-[#200f07] hover:opacity-90 text-white flex items-center justify-center shrink-0 transition-colors shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-[#200f07] focus-visible:ring-offset-1"
+          className="w-10 h-10 rounded-lg bg-[#200f07] border border-[#c5e384]/40 text-[#c5e384] hover:bg-[#c5e384] hover:text-[#200f07] flex items-center justify-center shrink-0 transition-colors shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-[#c5e384] focus-visible:ring-offset-1"
           title="Call to book"
           aria-label={`Call to book ${vehicle.name}`}
         >
