@@ -44,11 +44,10 @@ export default {
         'border-strong': 'rgba(32, 15, 7, 0.28)'
       },
       fontFamily: {
-        // Manrope — clean, highly readable body/UI text.
-        sans: ['Manrope', 'system-ui', '-apple-system', 'sans-serif'],
-        // Oswald — bold condensed editorial display face for headings,
-        // section titles, package/destination names and big numbers.
-        display: ['Oswald', 'system-ui', 'sans-serif'],
+        // Cabinet Grotesk — single grotesk typeface for the whole UI,
+        // body and headings alike.
+        sans: ['"Cabinet Grotesk"', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['"Cabinet Grotesk"', 'system-ui', '-apple-system', 'sans-serif'],
         // Cormorant Garamond — elegant editorial serif accent, used
         // sparingly (italic) for one emphasis word inside headings,
         // never for body copy.

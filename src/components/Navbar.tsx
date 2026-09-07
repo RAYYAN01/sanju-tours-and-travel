@@ -112,15 +112,15 @@ export const Navbar: React.FC = () => {
               className="flex items-center gap-3 group focus:outline-none shrink-0" 
               aria-label="Sanju Tours & Travels Home"
             >
-              <div
-                className={`w-10 h-10 rounded-xl flex items-center justify-center font-display font-extrabold text-sm tracking-tighter transition-all group-hover:scale-105 shadow-sm ${
-                  isTransparent
-                    ? 'bg-white/15 text-white border border-white/30 backdrop-blur-md'
-                    : 'bg-[#200f07] text-[#fff9eb] border border-[#200f07]/40'
+              <img
+                src="/logo-mark.webp"
+                alt=""
+                width={44}
+                height={44}
+                className={`w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover shrink-0 shadow-sm transition-transform group-hover:scale-105 ${
+                  isTransparent ? 'ring-1 ring-white/40' : 'ring-1 ring-[#200f07]/15'
                 }`}
-              >
-                ST
-              </div>
+              />
               <div className="flex flex-col">
                 <span
                   className={`font-display font-extrabold text-base sm:text-lg tracking-tight uppercase leading-none transition-colors ${

@@ -17,17 +17,16 @@
   body {
     background-color: var(--bg-primary);
     color: var(--main-dark);
-    font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+    font-family: 'Cabinet Grotesk', system-ui, -apple-system, sans-serif;
     letter-spacing: -0.01em;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Cabinet Grotesk', system-ui, -apple-system, sans-serif;
     color: var(--main-dark);
-    /* Sane defaults so any heading that forgets an explicit font-weight/
-       leading utility still reads as a confident display headline rather
-       than falling back to Oswald's thin 400 weight. */
-    font-weight: 600;
+    /* Sane default so any heading that forgets an explicit font-weight
+       utility still reads as a confident headline. */
+    font-weight: 700;
     line-height: 1.15;
     letter-spacing: -0.015em;
   }

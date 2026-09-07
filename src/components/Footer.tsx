@@ -25,9 +25,13 @@ export const Footer: React.FC = () => {
           {/* Brand Bio */}
           <div className="lg:col-span-4 space-y-4">
             <Link to="/" className="flex items-center gap-3 group" aria-label="Sanju Tours & Travels Home">
-              <div className="w-10 h-10 rounded-xl bg-[#200f07] text-white flex items-center justify-center font-display font-extrabold text-sm border border-white/20 shadow-sm">
-                ST
-              </div>
+              <img
+                src="/logo-mark.webp"
+                alt=""
+                width={44}
+                height={44}
+                className="w-11 h-11 rounded-full object-cover shrink-0 ring-1 ring-white/15 shadow-sm"
+              />
               <div>
                 <span className="font-display font-extrabold text-base tracking-tight uppercase text-white block leading-none">
                   Sanju Tours

@@ -31,13 +31,22 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
       >
         {/* Header */}
         <div className="flex items-center justify-between p-5 border-b border-[#200f07]/15 bg-[#200f07] text-[#fff9eb]">
-          <div>
-            <span className="font-display font-bold text-sm tracking-wider uppercase block text-white">
-              SANJU TOURS & TRAVELS
-            </span>
-            <span className="text-[10px] text-[#c5e384] uppercase tracking-widest font-semibold">
-              Hubballi, Karnataka
-            </span>
+          <div className="flex items-center gap-3 min-w-0">
+            <img
+              src="/logo-mark.webp"
+              alt=""
+              width={40}
+              height={40}
+              className="w-10 h-10 rounded-full object-cover shrink-0 ring-1 ring-white/15"
+            />
+            <div className="min-w-0">
+              <span className="font-display font-bold text-sm tracking-wider uppercase block text-white truncate">
+                SANJU TOURS & TRAVELS
+              </span>
+              <span className="text-[10px] text-[#c5e384] uppercase tracking-widest font-semibold">
+                Hubballi, Karnataka
+              </span>
+            </div>
           </div>
           <button
             type="button"
