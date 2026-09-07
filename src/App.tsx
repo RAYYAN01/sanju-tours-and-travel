@@ -8,6 +8,8 @@ import { BookingModal } from './components/BookingModal';
 import { FloatingActions } from './components/FloatingActions';
 import { ScrollProgressBar } from './components/motion/ScrollProgressBar';
 import { Seo } from './components/Seo';
+import { CookieConsent } from './components/CookieConsent';
+import { AutoEnquiry } from './components/AutoEnquiry';
 
 import { Home } from './pages/Home';
 import { About } from './pages/About';
@@ -80,6 +82,8 @@ export const App: React.FC = () => {
           <Footer />
           <BookingModal />
           <FloatingActions />
+          <CookieConsent />
+          <AutoEnquiry />
         </div>
       </BookingModalProvider>
     </ReactLenis>
