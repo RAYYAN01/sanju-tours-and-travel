@@ -157,7 +157,15 @@ export const Footer: React.FC = () => {
         </div>
 
         <p className="pt-4 text-center text-[10px] text-[#fff9eb]/40">
-          Designed &amp; Developed by Naaz AI Labs
+          Designed &amp; Developed by{' '}
+          <a
+            href="https://www.naazailabs.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-[#fff9eb]/60 hover:text-[#c5e384] underline decoration-[#fff9eb]/20 underline-offset-2 hover:decoration-[#c5e384] transition-colors outline-none focus-visible:ring-2 focus-visible:ring-[#c5e384] rounded"
+          >
+            Naaz AI Labs
+          </a>
         </p>
 
       </div>
