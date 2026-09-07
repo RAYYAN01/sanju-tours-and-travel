@@ -10,10 +10,21 @@ interface DestinationCardProps {
 export const DestinationCard: React.FC<DestinationCardProps> = ({ destination }) => {
   const { openModal } = useBookingModal();
 
+  const openEnquiry = () => openModal(`Destination Trip: ${destination.name}`);
+
   return (
     <div
-      onClick={() => openModal(`Destination Trip: ${destination.name}`)}
-      className="group relative rounded-card overflow-hidden border border-[#200f07]/15 shadow-card cursor-pointer min-h-[420px] sm:min-h-[460px] lg:min-h-[480px] bg-[#200f07] flex flex-col justify-end p-6 sm:p-7 transition-[box-shadow,border-color] duration-200 hover:shadow-lifted hover:border-[#200f07]/30"
+      role="button"
+      tabIndex={0}
+      onClick={openEnquiry}
+      onKeyDown={e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openEnquiry();
+        }
+      }}
+      aria-label={`Enquire about a cab to ${destination.name}`}
+      className="group relative rounded-card overflow-hidden border border-[#200f07]/15 shadow-card cursor-pointer min-h-[420px] sm:min-h-[460px] lg:min-h-[480px] bg-[#200f07] flex flex-col justify-end p-6 sm:p-7 transition-[box-shadow,border-color] duration-200 hover:shadow-lifted hover:border-[#200f07]/30 outline-none focus-visible:ring-2 focus-visible:ring-[#c5e384] focus-visible:ring-offset-2"
     >
       {/* Background Image */}
       <img
