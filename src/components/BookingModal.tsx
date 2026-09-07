@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { X, Send, Phone, CheckCircle2, ShieldCheck, MessageSquareText } from 'lucide-react';
 import { useBookingModal } from '../context/BookingModalContext';
 import { VEHICLES } from '../data/vehicles';
-import { openWhatsAppEnquiry, BUSINESS_PHONE_DISPLAY } from '../utils/whatsapp';
+import { openWhatsAppEnquiry, PHONE_TEL_HREF, CALL_ARIA_LABEL } from '../utils/whatsapp';
 
 export const BookingModal: React.FC = () => {
   const { isOpen, selectedVehicle, closeModal } = useBookingModal();
@@ -242,8 +242,9 @@ export const BookingModal: React.FC = () => {
                   <span>Send Quotation Request (WhatsApp)</span>
                 </button>
                 <a
-                  href={`tel:${BUSINESS_PHONE_DISPLAY.replace(/\s/g, '')}`}
-                  className="btn-outline-dark py-3 px-4 text-xs"
+                  href={PHONE_TEL_HREF}
+                  aria-label={CALL_ARIA_LABEL}
+                  className="btn-outline-dark py-3 px-4 text-xs outline-none focus-visible:ring-2 focus-visible:ring-[#200f07]"
                 >
                   <Phone className="w-3.5 h-3.5" />
                   <span>Call Us</span>

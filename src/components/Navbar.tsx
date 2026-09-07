@@ -4,7 +4,7 @@ import { Phone, Menu, ChevronDown, Sparkles, HelpCircle, Star, ShieldCheck } fro
 import { useLenis } from 'lenis/react';
 import { MobileMenu } from './MobileMenu';
 import { useBookingModal } from '../context/BookingModalContext';
-import { BUSINESS_PHONE_DISPLAY } from '../utils/whatsapp';
+import { BUSINESS_PHONE_DISPLAY, PHONE_TEL_HREF, CALL_ARIA_LABEL } from '../utils/whatsapp';
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -256,8 +256,9 @@ export const Navbar: React.FC = () => {
             {/* RIGHT: Phone & Enquire Now */}
             <div className="flex items-center gap-3 sm:gap-4">
               <a
-                href={`tel:${BUSINESS_PHONE_DISPLAY.replace(/\s/g, '')}`}
-                className={`hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold transition-colors py-1.5 px-3 rounded-lg ${
+                href={PHONE_TEL_HREF}
+                aria-label={CALL_ARIA_LABEL}
+                className={`hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold transition-colors py-1.5 px-3 rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-[#c5e384] ${
                   isTransparent
                     ? 'bg-white/15 hover:bg-white/25 text-white border border-white/25 backdrop-blur-md'
                     : 'bg-[#200f07]/5 text-[#200f07] hover:text-[#200f07]'

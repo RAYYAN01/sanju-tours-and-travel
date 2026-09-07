@@ -59,7 +59,9 @@ export const App: React.FC = () => {
       <BookingModalProvider>
         <ScrollToTop />
         <ScrollProgressBar />
-        <div className="flex flex-col min-h-[100dvh] bg-[#fff9eb] text-[#200f07]">
+        {/* pb on mobile clears the fixed FloatingActions bar so it never
+            covers the footer's last row; no bar on sm+ so no padding there. */}
+        <div className="flex flex-col min-h-[100dvh] bg-[#fff9eb] text-[#200f07] pb-[calc(4rem+env(safe-area-inset-bottom))] sm:pb-0">
           <Navbar />
           <div className={`flex-grow ${TRANSPARENT_HERO_ROUTES.includes(location.pathname) ? '' : 'pt-[68px] sm:pt-[76px]'}`}>
             <Routes>

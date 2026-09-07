@@ -1,7 +1,7 @@
 import React from 'react';
 import { Send, Phone, MessageSquare, Check } from 'lucide-react';
 import { useBookingModal } from '../context/BookingModalContext';
-import { BUSINESS_PHONE_DISPLAY, openWhatsAppEnquiry } from '../utils/whatsapp';
+import { BUSINESS_PHONE_DISPLAY, PHONE_TEL_HREF, CALL_ARIA_LABEL, whatsappHref } from '../utils/whatsapp';
 import { Reveal } from './motion/Reveal';
 
 export const CTASection: React.FC = () => {
@@ -25,32 +25,35 @@ export const CTASection: React.FC = () => {
           Tell us your pickup spot, passenger count, and travel dates. Receive a clear, all-inclusive per-km rate breakdown in minutes.
         </p>
 
-        <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3.5">
-          <button
-            type="button"
-            onClick={() => openModal('Pre-Footer CTA')}
-            className="w-full sm:w-auto btn-accent py-3.5 px-7 text-xs tracking-wider"
-          >
-            <span>Request Online Quote</span>
-            <Send className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
-          </button>
-
+        <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
           <a
-            href={`tel:${BUSINESS_PHONE_DISPLAY.replace(/\s/g, '')}`}
-            className="group w-full sm:w-auto btn-dark bg-white/10 hover:bg-white/20 border border-white/20 text-xs py-3.5 px-6 tracking-wider"
+            href={whatsappHref({ requirements: 'General booking enquiry from website pre-footer.' })}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group w-full sm:w-auto btn-accent py-3.5 px-7 text-xs tracking-wider outline-none focus-visible:ring-2 focus-visible:ring-white"
           >
-            <Phone className="w-4 h-4 text-[#c5e384] transition-transform duration-200 group-hover:scale-110" />
-            <span>Call {BUSINESS_PHONE_DISPLAY}</span>
+            <MessageSquare className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
+            <span>WhatsApp Us</span>
           </a>
 
           <button
             type="button"
-            onClick={() => openWhatsAppEnquiry({ requirements: 'General booking enquiry from website pre-footer.' })}
-            className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-display font-semibold text-xs tracking-wider uppercase text-white bg-[#200f07] hover:opacity-90 shadow-sm transition-[background-color,transform,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 active:scale-[0.98]"
+            onClick={() => openModal('Pre-Footer CTA')}
+            className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-display font-semibold text-xs tracking-wider uppercase text-white bg-white/10 hover:bg-white/20 border border-white/20 shadow-sm transition-[background-color,transform,box-shadow] duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] outline-none focus-visible:ring-2 focus-visible:ring-[#c5e384]"
           >
-            <MessageSquare className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
-            <span>WhatsApp Us</span>
+            <Send className="w-3.5 h-3.5" />
+            <span>Request Online Quote</span>
           </button>
+
+          <a
+            href={PHONE_TEL_HREF}
+            aria-label={CALL_ARIA_LABEL}
+            title={CALL_ARIA_LABEL}
+            className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-display font-semibold text-xs tracking-wider uppercase text-white bg-white/10 hover:bg-white/20 border border-white/20 shadow-sm transition-[background-color,transform,box-shadow] duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] outline-none focus-visible:ring-2 focus-visible:ring-[#c5e384]"
+          >
+            <Phone className="w-4 h-4 text-[#c5e384] transition-transform duration-200 group-hover:scale-110" />
+            <span>Call {BUSINESS_PHONE_DISPLAY}</span>
+          </a>
         </div>
 
         <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-[#fff9eb]/80">

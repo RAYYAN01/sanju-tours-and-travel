@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Phone, MessageSquare, MapPin, Clock, ShieldCheck, ArrowUpRight, Zap } from 'lucide-react';
 import { BookingForm } from '../components/BookingForm';
-import { BUSINESS_PHONE_DISPLAY, BUSINESS_ADDRESS, openWhatsAppEnquiry } from '../utils/whatsapp';
+import { BUSINESS_PHONE_DISPLAY, BUSINESS_ADDRESS, PHONE_TEL_HREF, CALL_ARIA_LABEL, whatsappHref } from '../utils/whatsapp';
 import { Reveal, StaggerGroup, StaggerItem } from '../components/motion/Reveal';
 
 export const Contact: React.FC = () => {
@@ -66,11 +66,13 @@ export const Contact: React.FC = () => {
 
           <Reveal y={8} delay={0.42} className="pt-1 sm:pt-2 flex justify-center">
             <a
-              href={`tel:${BUSINESS_PHONE_DISPLAY.replace(/\s/g, '')}`}
-              className="group btn-accent text-xs sm:text-sm py-3 sm:py-3.5 px-6 sm:px-8 tracking-wider shadow-md"
+              href={PHONE_TEL_HREF}
+              aria-label={CALL_ARIA_LABEL}
+              title={CALL_ARIA_LABEL}
+              className="group btn-accent text-xs sm:text-sm py-3 sm:py-3.5 px-6 sm:px-8 tracking-wider shadow-md outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               <Phone className="w-4 h-4" />
-              <span>Call Now</span>
+              <span>Call {BUSINESS_PHONE_DISPLAY}</span>
             </a>
           </Reveal>
         </div>
@@ -99,8 +101,9 @@ export const Contact: React.FC = () => {
                 <StaggerItem>
                   {/* Direct Phone */}
                   <a
-                    href={`tel:${BUSINESS_PHONE_DISPLAY.replace(/\s/g, '')}`}
-                    className="card-editorial group p-5 flex items-center gap-4"
+                    href={PHONE_TEL_HREF}
+                    aria-label={CALL_ARIA_LABEL}
+                    className="card-editorial group p-5 flex items-center gap-4 outline-none focus-visible:ring-2 focus-visible:ring-[#200f07]"
                   >
                     <div className="w-11 h-11 rounded-full bg-[#c5e384] text-[#200f07] flex items-center justify-center shrink-0 transition-colors group-hover:bg-[#200f07] group-hover:text-white">
                       <Phone className="w-5 h-5" strokeWidth={1.75} />
@@ -122,10 +125,11 @@ export const Contact: React.FC = () => {
 
                 <StaggerItem>
                   {/* WhatsApp Desk */}
-                  <button
-                    type="button"
-                    onClick={() => openWhatsAppEnquiry({ requirements: 'Inquiry from Contact page' })}
-                    className="card-editorial group p-5 flex items-center gap-4 w-full text-left"
+                  <a
+                    href={whatsappHref({ requirements: 'Inquiry from Contact page' })}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="card-editorial group p-5 flex items-center gap-4 w-full text-left outline-none focus-visible:ring-2 focus-visible:ring-[#200f07]"
                   >
                     <div className="w-11 h-11 rounded-full bg-[#c5e384] text-[#200f07] flex items-center justify-center shrink-0 transition-colors group-hover:bg-[#200f07] group-hover:text-white">
                       <MessageSquare className="w-5 h-5" strokeWidth={1.75} />
@@ -142,7 +146,7 @@ export const Contact: React.FC = () => {
                       </p>
                     </div>
                     <ArrowUpRight className="w-4 h-4 text-[#200f07]/40 shrink-0 self-start mt-1 transition-all group-hover:text-[#200f07] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </button>
+                  </a>
                 </StaggerItem>
 
                 <StaggerItem>

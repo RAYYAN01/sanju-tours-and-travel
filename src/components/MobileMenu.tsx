@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { X, Phone, MessageSquare, ArrowRight, ShieldCheck } from 'lucide-react';
-import { BUSINESS_PHONE_DISPLAY } from '../utils/whatsapp';
+import { PHONE_TEL_HREF, CALL_ARIA_LABEL, whatsappHref } from '../utils/whatsapp';
 import { useBookingModal } from '../context/BookingModalContext';
 
 interface MobileMenuProps {
@@ -114,23 +114,24 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
           
           <div className="grid grid-cols-2 gap-2">
             <a
-              href={`tel:${BUSINESS_PHONE_DISPLAY.replace(/\s/g, '')}`}
-              className="btn-outline-dark py-2.5 px-3 text-[11px] flex items-center justify-center gap-1.5"
+              href={PHONE_TEL_HREF}
+              aria-label={CALL_ARIA_LABEL}
+              onClick={onClose}
+              className="btn-outline-dark py-2.5 px-3 text-[11px] flex items-center justify-center gap-1.5 outline-none focus-visible:ring-2 focus-visible:ring-[#200f07]"
             >
               <Phone className="w-3.5 h-3.5 text-[#200f07]" />
               <span>Call Now</span>
             </a>
-            <button
-              type="button"
-              onClick={() => {
-                onClose();
-                openModal('WhatsApp Assistance');
-              }}
-              className="btn-dark py-2.5 px-3 text-[11px] flex items-center justify-center gap-1.5"
+            <a
+              href={whatsappHref({ requirements: 'Enquiry from mobile menu' })}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={onClose}
+              className="btn-dark py-2.5 px-3 text-[11px] flex items-center justify-center gap-1.5 outline-none focus-visible:ring-2 focus-visible:ring-[#c5e384]"
             >
               <MessageSquare className="w-3.5 h-3.5 text-[#c5e384]" />
               <span>WhatsApp</span>
-            </button>
+            </a>
           </div>
 
           <div className="flex items-center justify-center gap-1.5 text-[10px] text-[#200f07]/70 font-medium pt-1">

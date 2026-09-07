@@ -2,7 +2,7 @@ import React from 'react';
 import { Users, Briefcase, Check, ArrowRight, MessageSquare, Phone } from 'lucide-react';
 import { Vehicle } from '../data/vehicles';
 import { useBookingModal } from '../context/BookingModalContext';
-import { openWhatsAppEnquiry, BUSINESS_PHONE_DISPLAY } from '../utils/whatsapp';
+import { openWhatsAppEnquiry, PHONE_TEL_HREF } from '../utils/whatsapp';
 
 interface VehicleCardProps {
   vehicle: Vehicle;
@@ -137,8 +137,8 @@ export const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle }) => {
         </button>
 
         <a
-          href={`tel:${BUSINESS_PHONE_DISPLAY.replace(/\s/g, '')}`}
-          className="w-10 h-10 rounded-lg bg-[#200f07] hover:opacity-90 text-white flex items-center justify-center shrink-0 transition-colors shadow-sm"
+          href={PHONE_TEL_HREF}
+          className="w-10 h-10 rounded-lg bg-[#200f07] hover:opacity-90 text-white flex items-center justify-center shrink-0 transition-colors shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-[#200f07] focus-visible:ring-offset-1"
           title="Call to book"
           aria-label={`Call to book ${vehicle.name}`}
         >

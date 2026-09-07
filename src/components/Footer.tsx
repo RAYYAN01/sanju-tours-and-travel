@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, MessageSquare, MapPin, Clock, ArrowUp, ExternalLink } from 'lucide-react';
 import { useLenis } from 'lenis/react';
-import { BUSINESS_PHONE_DISPLAY, BUSINESS_ADDRESS, BUSINESS_MAPS_URL, openWhatsAppEnquiry } from '../utils/whatsapp';
+import { BUSINESS_PHONE_DISPLAY, BUSINESS_ADDRESS, BUSINESS_MAPS_URL, PHONE_TEL_HREF, CALL_ARIA_LABEL, whatsappHref } from '../utils/whatsapp';
 
 export const Footer: React.FC = () => {
   const lenis = useLenis();
@@ -44,20 +44,23 @@ export const Footer: React.FC = () => {
 
             <div className="pt-2 flex items-center gap-3">
               <a
-                href={`tel:${BUSINESS_PHONE_DISPLAY.replace(/\s/g, '')}`}
-                className="btn-dark bg-white/5 hover:bg-white/10 text-xs py-2 px-3 border border-white/10"
+                href={PHONE_TEL_HREF}
+                aria-label={CALL_ARIA_LABEL}
+                title={CALL_ARIA_LABEL}
+                className="btn-dark bg-white/5 hover:bg-white/10 text-xs py-2 px-3 border border-white/10 outline-none focus-visible:ring-2 focus-visible:ring-[#c5e384]"
               >
                 <Phone className="w-3.5 h-3.5 text-[#c5e384]" />
                 <span>Call Us</span>
               </a>
-              <button
-                type="button"
-                onClick={() => openWhatsAppEnquiry({ requirements: 'Footer quick contact enquiry' })}
-                className="btn-dark bg-white/5 hover:bg-white/10 text-xs py-2 px-3 border border-white/10"
+              <a
+                href={whatsappHref({ requirements: 'Footer quick contact enquiry' })}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-dark bg-white/5 hover:bg-white/10 text-xs py-2 px-3 border border-white/10 outline-none focus-visible:ring-2 focus-visible:ring-[#c5e384]"
               >
                 <MessageSquare className="w-3.5 h-3.5 text-[#c5e384]" />
                 <span>WhatsApp</span>
-              </button>
+              </a>
             </div>
           </div>
 
@@ -115,7 +118,11 @@ export const Footer: React.FC = () => {
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#c5e384] shrink-0" />
-                <a href={`tel:${BUSINESS_PHONE_DISPLAY.replace(/\s/g, '')}`} className="hover:text-white font-bold text-[#fff9eb]">
+                <a
+                  href={PHONE_TEL_HREF}
+                  aria-label={CALL_ARIA_LABEL}
+                  className="hover:text-white font-bold text-[#fff9eb] outline-none focus-visible:ring-2 focus-visible:ring-[#c5e384] rounded"
+                >
                   {BUSINESS_PHONE_DISPLAY}
                 </a>
               </div>
