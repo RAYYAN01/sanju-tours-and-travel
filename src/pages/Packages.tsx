@@ -15,6 +15,13 @@ export const Packages: React.FC = () => {
       {/* Subpage Hero — editorial layout, centered: tiny eyebrow, bold heading,
           italic accent line, description, tag row, and a CTA button, each staggering in. */}
       <section className="relative pt-28 sm:pt-36 pb-16 sm:pb-24 border-b border-[#200f07]/10 overflow-hidden bg-[#200f07]">
+        <img
+          src="/assets/packages_hero.jpeg"
+          alt="Virupaksha Temple gopuram rising over the Vijayanagara ruins at Hampi, Karnataka"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#200f07]/85 via-[#200f07]/75 to-[#200f07]/90" />
 
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4 sm:space-y-5">
           <Reveal y={8} delay={0}>
