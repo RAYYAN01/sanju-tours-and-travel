@@ -8,6 +8,7 @@ import { BookingModal } from './components/BookingModal';
 import { FloatingActions } from './components/FloatingActions';
 import { ScrollProgressBar } from './components/motion/ScrollProgressBar';
 import { Seo } from './components/Seo';
+import { StructuredData } from './components/StructuredData';
 import { CookieConsent } from './components/CookieConsent';
 import { AutoEnquiry } from './components/AutoEnquiry';
 import { TRANSPARENT_HERO_ROUTES } from './data/site';
@@ -70,6 +71,7 @@ export const App: React.FC = () => {
     >
       <BookingModalProvider>
         <Seo />
+        <StructuredData />
         <ScrollToTop />
         <ScrollProgressBar />
         {/* pb on mobile clears the fixed FloatingActions bar so it never
