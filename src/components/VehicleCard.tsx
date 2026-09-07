@@ -120,7 +120,7 @@ export const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle }) => {
         <button
           type="button"
           onClick={() => openModal(`Vehicle Booking: ${vehicle.name}`, vehicle.name)}
-          className="flex-1 btn-accent text-xs py-2.5 rounded-lg tracking-wider"
+          className="btn-shine flex-1 btn-accent text-xs py-2.5 rounded-lg tracking-wider"
         >
           <span>Book Ride</span>
           <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
