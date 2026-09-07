@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Three-color system, strictly: every other value below is one of
+   these three at reduced opacity — never a fourth hue. */
+:root {
+  --bg-primary: #fff9eb;     /* VANILLA CUSTARD */
+  --main-dark: #200f07;      /* MIDNIGHT ESPRESSO */
+  --accent-fill: #c5e384;    /* PISTACHIO FROST — solid fills, paired with dark text */
+  --muted-text: rgba(32, 15, 7, 0.7); /* Espresso @ 70% — secondary text */
+  --border-subtle: rgba(32, 15, 7, 0.14);
+  --border-strong: rgba(32, 15, 7, 0.28);
+}
+
+@layer base {
+  body {
+    background-color: var(--bg-primary);
+    color: var(--main-dark);
+    font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', sans-serif;
+    color: var(--main-dark);
+    /* Sane defaults so any heading that forgets an explicit font-weight/
+       leading utility still reads as a confident display headline rather
+       than falling back to Oswald's thin 400 weight. */
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+  }
+}
+
+@layer components {
+  /* Editorial Buttons — subtle lift + press feedback, GPU-friendly (transform/opacity only) */
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-display font-semibold text-xs tracking-wider uppercase text-[#200f07] bg-[#c5e384] hover:opacity-90 shadow-sm transition-[background-color,transform,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 active:scale-[0.98];
+  }
+
+  .btn-dark {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-display font-semibold text-xs tracking-wider uppercase text-[#fff9eb] bg-[#200f07] hover:opacity-90 shadow-sm transition-[background-color,transform,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 active:scale-[0.98];
+  }
+
+  .btn-outline-dark {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-display font-semibold text-xs tracking-wider uppercase text-[#200f07] border border-[rgba(32,15,7,0.25)] hover:bg-[#2e1c10] hover:text-[#fff9eb] transition-[background-color,color,transform,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 active:scale-[0.98];
+  }
+
+  .btn-outline-accent {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-display font-semibold text-xs tracking-wider uppercase text-[#200f07] border border-[#200f07]/50 hover:bg-[#2e1c10] hover:text-white transition-[background-color,color,transform,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 active:scale-[0.98];
+  }
+
+  /* Editorial Cards — subtle lift on hover, GPU-friendly (transform/opacity only).
+     Vanilla Custard fill (same tone as the page), separated from the backdrop by
+     border + shadow alone — never white, to hold the strict three-color system. */
+  .card-editorial {
+    @apply bg-[#fff9eb] rounded-xl border border-[rgba(32,15,7,0.12)] shadow-subtle transition-[border-color,box-shadow,transform] duration-300 ease-out hover:border-[rgba(32,15,7,0.28)] hover:shadow-card hover:-translate-y-1;
+  }
+
+  .card-warm {
+    @apply bg-[#fff9eb] rounded-xl border border-[rgba(32,15,7,0.12)] transition-[border-color,box-shadow] duration-200;
+  }
+
+  /* Badge styling — refined travel-editorial pill, uppercase + tracked */
+  .badge-tag {
+    @apply inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-display font-semibold tracking-wider uppercase;
+  }
+
+  /* Tight Section Spacing for continuous editorial flow */
+  .section-tight {
+    @apply py-8 sm:py-11 border-b border-[#200f07]/10;
+  }
+
+  /* Hides the scrollbar on horizontally swipeable rows (testimonial/carousel
+     strips) while keeping native touch/trackpad scroll + snap fully usable. */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Architectural registration corners */
+  .corner-bracket {
+    position: relative;
+  }
+  .corner-bracket::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 6px;
+    height: 6px;
+    border-top: 1.5px solid #200f07;
+    border-left: 1.5px solid #200f07;
+    pointer-events: none;
+  }
+  .corner-bracket::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+    width: 6px;
+    height: 6px;
+    border-bottom: 1.5px solid #200f07;
+    border-right: 1.5px solid #200f07;
+    pointer-events: none;
+  }
+}
+
+/* Subtle smooth transitions */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+input, select, textarea {
+  accent-color: #200f07;
+}
+
+/* Accessible focus ring */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid #200f07;
+  outline-offset: 2px;
+}
+
+/* Continuous Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Slow ambient glow breathing — used behind dark CTA sections. Transform/opacity only. */
+@keyframes glow-pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.12);
+    opacity: 1;
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 8s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Reduced motion support for accessibility and performance */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-marquee {
+    animation: none !important;
+    transform: none !important;
+  }
+}
