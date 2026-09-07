@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sanju-tours-and-travel.vercel.app/sitemap.xml

@@ -7,6 +7,7 @@ import { Footer } from './components/Footer';
 import { BookingModal } from './components/BookingModal';
 import { FloatingActions } from './components/FloatingActions';
 import { ScrollProgressBar } from './components/motion/ScrollProgressBar';
+import { Seo } from './components/Seo';
 
 import { Home } from './pages/Home';
 import { About } from './pages/About';
@@ -57,6 +58,7 @@ export const App: React.FC = () => {
       }}
     >
       <BookingModalProvider>
+        <Seo />
         <ScrollToTop />
         <ScrollProgressBar />
         {/* pb on mobile clears the fixed FloatingActions bar so it never

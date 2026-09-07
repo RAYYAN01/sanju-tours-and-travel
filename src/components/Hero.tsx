@@ -36,7 +36,7 @@ export const Hero: React.FC = () => {
           only a very subtle scroll-linked zoom (transform only, GPU-friendly). */}
       <motion.video
         src="/lp.mp4"
-        poster="./landing_poster.jpg"
+        poster="/landing_poster.jpg"
         autoPlay
         loop
         muted
@@ -68,8 +68,10 @@ export const Hero: React.FC = () => {
             <span>Every Journey Has a Story</span>
           </motion.div>
 
-          {/* Main Headline — revealed line by line with a subtle letter-spacing settle */}
-          <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-[1.08] drop-shadow-xl">
+          {/* Brand tagline — visually the hero headline, but the page's real
+              <h1> is the keyword-rich one in Home.tsx, so this stays a <p>
+              to keep a single h1 per page. */}
+          <p className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-[1.08] drop-shadow-xl">
             <motion.span
               initial={{ opacity: 0, y: 18, letterSpacing: '0.04em' }}
               whileInView={{ opacity: 1, y: 0, letterSpacing: '-0.01em' }}
@@ -88,7 +90,7 @@ export const Hero: React.FC = () => {
             >
               Begin on the <span className="text-[#c5e384]">Road.</span>
             </motion.span>
-          </h1>
+          </p>
 
           {/* Accent Line */}
           <motion.p
