@@ -7,7 +7,7 @@ export interface FAQ {
 export const FAQS: FAQ[] = [
   {
     question: 'How do I book a vehicle with Sanju Tours & Travels?',
-    answer: 'You can submit an enquiry using the booking bar on this website, or reach us directly via call or WhatsApp at +91 98867 70099. We immediately confirm vehicle availability, share an itemized transparent quotation with all per-km rates, driver allowances, and payment terms before you confirm.',
+    answer: 'You can submit an enquiry using the booking bar on this website, or reach us directly via call or WhatsApp at +91 73381 48518. We immediately confirm vehicle availability, share an itemized transparent quotation with all per-km rates, driver allowances, and payment terms before you confirm.',
     category: 'Booking'
   },
   {

@@ -1,5 +1,5 @@
-export const BUSINESS_PHONE = "+918073601921";
-export const BUSINESS_PHONE_DISPLAY = "+91 80736 01921";
+export const BUSINESS_PHONE = "+917338148518";
+export const BUSINESS_PHONE_DISPLAY = "+91 73381 48518";
 export const BUSINESS_NAME = "Sanju Tours & Travels";
 export const BUSINESS_ADDRESS = "P.B. Road, Opp. Siddhappilla Temple, Unkal, Hubli – 580031";
 export const BUSINESS_MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(BUSINESS_ADDRESS)}`;
