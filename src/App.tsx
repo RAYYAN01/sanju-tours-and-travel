@@ -10,6 +10,7 @@ import { ScrollProgressBar } from './components/motion/ScrollProgressBar';
 import { Seo } from './components/Seo';
 import { CookieConsent } from './components/CookieConsent';
 import { AutoEnquiry } from './components/AutoEnquiry';
+import { TRANSPARENT_HERO_ROUTES } from './data/site';
 
 // Home is eager (landing page for most traffic + first paint); the rest
 // are split into their own chunks so a cold visit only downloads the
@@ -46,8 +47,6 @@ const ScrollToTop: React.FC = () => {
 
   return null;
 };
-
-const TRANSPARENT_HERO_ROUTES = ['/', '/contact', '/about', '/services', '/destinations', '/packages', '/fleet'];
 
 export const App: React.FC = () => {
   const location = useLocation();

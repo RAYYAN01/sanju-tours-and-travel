@@ -59,3 +59,15 @@ export const PAGE_CRUMB: Record<string, string> = {
   '/packages': 'Tour Packages',
   '/contact': 'Contact',
 };
+
+// Routes whose hero sits full-bleed behind the navbar — these get the
+// transparent-until-scrolled navbar and no top padding on the content.
+export const TRANSPARENT_HERO_ROUTES = [
+  '/',
+  '/about',
+  '/fleet',
+  '/services',
+  '/destinations',
+  '/packages',
+  '/contact',
+];

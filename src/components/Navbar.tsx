@@ -5,6 +5,7 @@ import { useLenis } from 'lenis/react';
 import { MobileMenu } from './MobileMenu';
 import { useBookingModal } from '../context/BookingModalContext';
 import { BUSINESS_PHONE_DISPLAY, PHONE_TEL_HREF, CALL_ARIA_LABEL } from '../utils/whatsapp';
+import { TRANSPARENT_HERO_ROUTES } from '../data/site';
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -85,9 +86,6 @@ export const Navbar: React.FC = () => {
   };
 
   const isHomeActive = location.pathname === '/';
-  // Pages with a full-bleed hero image/video behind the navbar get the
-  // transparent-until-scrolled treatment, same as the Home landing page.
-  const TRANSPARENT_HERO_ROUTES = ['/', '/contact', '/about', '/services', '/destinations', '/packages', '/fleet'];
   const hasTransparentHero = TRANSPARENT_HERO_ROUTES.includes(location.pathname);
   const isTransparent = hasTransparentHero && !isScrolled;
 
