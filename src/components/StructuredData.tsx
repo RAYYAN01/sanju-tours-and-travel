@@ -1,15 +1,14 @@
 import React, { useEffect } from 'react';
 import { SITE_URL } from '../data/site';
-import { FAQS } from '../data/faqs';
 import { VEHICLES } from '../data/vehicles';
 import { SERVICES } from '../data/services';
 
 /**
- * Injects the data-derived JSON-LD (FAQPage, per-vehicle pricing offers,
- * service list) built from the same modules the pages render, so the
- * structured data can never drift from what's on screen. The core
- * LocalBusiness node lives statically in index.html; these reference it
- * by @id. Rendered once for the whole app.
+ * Enhancement schema for JS-capable crawlers: the per-vehicle pricing
+ * OfferCatalog and the Service list, built from the same data modules the
+ * pages render so it can't drift. The core LocalBusiness and FAQPage
+ * nodes live statically in index.html (so no-JS engines get them); these
+ * reference the business by @id. Rendered once for the whole app.
  */
 
 const SCRIPT_ID = 'structured-data-graph';
@@ -21,16 +20,6 @@ const toPerKm = (rate: string): number | null => {
 };
 
 function buildGraph() {
-  const faqPage = {
-    '@type': 'FAQPage',
-    '@id': `${SITE_URL}/#faq`,
-    mainEntity: FAQS.map((f) => ({
-      '@type': 'Question',
-      name: f.question,
-      acceptedAnswer: { '@type': 'Answer', text: f.answer },
-    })),
-  };
-
   const fleetCatalog = {
     '@type': 'OfferCatalog',
     '@id': `${SITE_URL}/#fleet`,
@@ -80,7 +69,7 @@ function buildGraph() {
 
   return {
     '@context': 'https://schema.org',
-    '@graph': [faqPage, fleetCatalog, ...services],
+    '@graph': [fleetCatalog, ...services],
   };
 }
 

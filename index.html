@@ -31,12 +31,11 @@
     <meta name="twitter:description" content="Reliable car, cab, Tempo Traveller and luxury coach rental in Hubli-Dharwad with transparent per-km pricing." />
     <meta name="twitter:image" content="https://sanju-tours-and-travel.vercel.app/assets/hero_travel_fleet.jpg" />
 
-    <!-- Structured data: one LocalBusiness entity for the whole site.
-         FAQ + fleet-pricing schema is added at runtime by
-         src/components/StructuredData.tsx from the same data the pages use.
+    <!-- Structured data. Kept static (not JS-injected) so crawlers and AI
+         answer engines that don't run JavaScript still get it.
          NOTE: aggregateRating must reflect a real, verifiable review score
-         (e.g. Google Business Profile). Update or remove ratingValue /
-         reviewCount if the figure changes. Add profile URLs to sameAs. -->
+         (e.g. Google Business Profile). Add profile URLs to sameAs.
+         The FAQ text below mirrors src/data/faqs.ts — keep them in sync. -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -105,6 +104,45 @@
       "sameAs": []
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": "https://sanju-tours-and-travel.vercel.app/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I book a vehicle with Sanju Tours & Travels?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Call or WhatsApp us on +91 73381 48518, or submit the booking form on this website. We confirm vehicle availability the same day and send an itemised quotation with the per-km rate, driver bata and daily kilometre minimum before you pay anything." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why choose Sanju Tours & Travels over app-based or local street cabs?",
+          "acceptedAnswer": { "@type": "Answer", "text": "We are a Hubli-Dharwad travel operator rated 4.9/5 across 210+ reviews, with 5,000+ completed trips. Every booking comes with a dedicated commercial-licensed driver, a clean well-maintained vehicle, a written per-km quote with no hidden surge, and 24/7 dispatch support." }
+        },
+        {
+          "@type": "Question",
+          "name": "How is outstation pricing calculated? Are there hidden charges?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Outstation trips are billed on a fixed per-kilometre rate — from ₹11/km for a Swift Dzire sedan, ₹15/km for a Maruti Ertiga, ₹17/km for an Innova Crysta, ₹20/km for a 12-seater Tempo Traveller and ₹45/km for a 33-seater tourist coach — with a 300 km/day minimum plus a fixed driver bata per calendar day. Tolls, state permits and parking are paid at actuals. There are no other charges." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you provide airport transfers to Hubballi Airport (HBX)?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. We run 24/7 airport taxi pickups and drops for Hubballi Airport (HBX) on Gokul Road. We track your flight so the driver is ready on arrival, and we cover Hubli, Dharwad, Navanagar, Vidyanagar and nearby towns." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer one-way drops to Goa, Bengaluru or Belgaum?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. We do one-way drops and multi-day round trips from Hubli to Goa, Belgaum, Bengaluru, Dandeli, Gokarna, Badami and Hampi. You get a clear one-way fare quote before the trip." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I book a Tempo Traveller or coach for wedding shuttles and group events?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes — group and wedding transport is one of our main services. We run a 12-seater Force Tempo Traveller and a 33-seater tourist coach, and coordinate timing with railway arrivals at Hubballi Junction, airport drops and hotel-to-venue convoys." }
+        }
+      ]
+    }
+    </script>
 
     <!-- Cabinet Grotesk (headings + body, via Fontshare) + Cormorant Garamond (editorial italic accent, via Google) -->
     <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
@@ -113,9 +151,93 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@300,400,500,600,700,800,900&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet" />
+    <style>
+      /* Pre-hydration content — visible to crawlers / no-JS engines and for
+         the split second before React mounts (then it replaces #root). */
+      #ssr-fallback { max-width: 780px; margin: 0 auto; padding: 40px 20px 64px; color: #200f07; font: 15px/1.65 system-ui, -apple-system, "Cabinet Grotesk", sans-serif; }
+      #ssr-fallback h1 { font-size: 1.5rem; line-height: 1.2; margin: 0 0 .5rem; }
+      #ssr-fallback h2 { font-size: 1.1rem; margin: 1.75rem 0 .4rem; }
+      #ssr-fallback h3 { font-size: .98rem; margin: 1rem 0 .2rem; }
+      #ssr-fallback a { color: #200f07; }
+      #ssr-fallback table { border-collapse: collapse; width: 100%; margin: .5rem 0; font-size: .9rem; }
+      #ssr-fallback th, #ssr-fallback td { border: 1px solid rgba(32,15,7,.2); padding: 6px 10px; text-align: left; }
+      #ssr-fallback .muted { color: rgba(32,15,7,.6); font-size: .85rem; }
+    </style>
     <script type="module" src="/src/main.tsx"></script>
   </head>
   <body class="bg-[#fff9eb] text-[#200f07] font-sans antialiased selection:bg-[#c5e384] selection:text-[#200f07] overflow-x-hidden min-h-screen">
-    <div id="root"></div>
+    <div id="root">
+      <div id="ssr-fallback">
+        <p class="muted">
+          <strong>Sanju Tours &amp; Travels</strong> — Call / WhatsApp
+          <a href="tel:+917338148518">+91&nbsp;73381&nbsp;48518</a> · Open 24×7 ·
+          P.B. Road, Opp. Siddhappilla Temple, Unkal, Hubballi, Karnataka 580031
+        </p>
+
+        <h1>Sanju Tours &amp; Travels — Cab, Taxi &amp; Vehicle Rental in Hubballi, Karnataka</h1>
+        <p>
+          Sanju Tours &amp; Travels is a Hubli&ndash;Dharwad travel operator offering airport
+          transfers to Hubballi Airport (HBX), outstation cabs, one-way drops, local twin-city
+          rentals, corporate travel, wedding &amp; event shuttles and custom multi-day tour
+          packages across North Karnataka and Goa. Verified commercial drivers, clean vehicles,
+          transparent per-kilometre pricing and 24/7 dispatch. Rated 4.9/5 across 210+ reviews.
+        </p>
+
+        <h2>Our services</h2>
+        <ul>
+          <li>Airport transfers &mdash; Hubballi Airport (HBX), Gokul Road, 24/7 with flight tracking</li>
+          <li>Outstation cabs &amp; one-way drops &mdash; Goa, Bengaluru, Belgaum, Dandeli, Gokarna, Badami, Hampi</li>
+          <li>Local &amp; intercity travel &mdash; Hubli&ndash;Dharwad twin-city, hourly and full-day rentals</li>
+          <li>Corporate travel &amp; staff transit &mdash; executive sedans, monthly contracts, GST billing</li>
+          <li>Wedding &amp; event transportation &mdash; guest shuttles, decorated cars, coaches</li>
+          <li>Customized holiday tour packages &mdash; Dandeli, Badami&ndash;Hampi heritage, Gokarna coast</li>
+        </ul>
+
+        <h2>Fleet &amp; per-kilometre rates (starting from)</h2>
+        <table>
+          <thead><tr><th>Vehicle</th><th>Seats</th><th>Non-AC</th><th>AC</th></tr></thead>
+          <tbody>
+            <tr><td>Swift Dzire (sedan)</td><td>4+1</td><td>&#8377;11/km</td><td>&#8377;12/km</td></tr>
+            <tr><td>Maruti Ertiga (MPV)</td><td>6+1</td><td>&#8377;15/km</td><td>&#8377;16/km</td></tr>
+            <tr><td>Force Trax Cruiser</td><td>12+1</td><td>&#8377;14/km</td><td>&#8377;15/km</td></tr>
+            <tr><td>Toyota Innova Crysta</td><td>7+1</td><td>&#8377;17/km</td><td>&#8377;18/km</td></tr>
+            <tr><td>Force Tempo Traveller</td><td>12+1</td><td>&#8377;20/km</td><td>&#8377;24/km</td></tr>
+            <tr><td>Tourist Coach</td><td>33+1</td><td>&#8377;45/km</td><td>&#8377;50/km</td></tr>
+          </tbody>
+        </table>
+        <p class="muted">
+          Outstation trips: 300 km/day minimum plus a fixed driver bata per day. Tolls,
+          permits and parking at actuals. No hidden charges.
+        </p>
+
+        <h2>Popular routes from Hubballi</h2>
+        <p>
+          Hubli to Goa, Hubli to Dandeli, Hubli to Gokarna, Hubli to Badami, Hubli to Hampi,
+          Hubli to Jog Falls, Hubli to Bengaluru, Hubli to Belgaum.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        <h3>How do I book a vehicle with Sanju Tours &amp; Travels?</h3>
+        <p>Call or WhatsApp us on +91 73381 48518, or submit the booking form on this website. We confirm vehicle availability the same day and send an itemised quotation with the per-km rate, driver bata and daily kilometre minimum before you pay anything.</p>
+        <h3>How is outstation pricing calculated? Are there hidden charges?</h3>
+        <p>Outstation trips are billed on a fixed per-kilometre rate &mdash; from &#8377;11/km for a Swift Dzire sedan up to &#8377;45/km for a 33-seater tourist coach &mdash; with a 300 km/day minimum plus a fixed driver bata per day. Tolls, permits and parking are paid at actuals. There are no other charges.</p>
+        <h3>Do you provide airport transfers to Hubballi Airport (HBX)?</h3>
+        <p>Yes. We run 24/7 airport taxi pickups and drops for Hubballi Airport (HBX) on Gokul Road, tracking your flight so the driver is ready on arrival, covering Hubli, Dharwad, Navanagar, Vidyanagar and nearby towns.</p>
+        <h3>Can I book a Tempo Traveller or coach for weddings and group events?</h3>
+        <p>Yes. We run a 12-seater Force Tempo Traveller and a 33-seater tourist coach, and coordinate timing with railway arrivals at Hubballi Junction, airport drops and hotel-to-venue convoys.</p>
+
+        <h2>More</h2>
+        <p>
+          <a href="/fleet">Fleet &amp; pricing</a> &middot;
+          <a href="/services">Services</a> &middot;
+          <a href="/destinations">Destinations</a> &middot;
+          <a href="/packages">Tour packages</a> &middot;
+          <a href="/about">About</a> &middot;
+          <a href="/contact">Contact</a> &middot;
+          <a href="/privacy">Privacy Policy</a>
+        </p>
+        <p class="muted">Loading the full site&hellip;</p>
+      </div>
+    </div>
   </body>
 </html>
