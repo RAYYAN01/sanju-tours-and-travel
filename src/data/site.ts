@@ -2,7 +2,7 @@
 // Update SITE_URL here (and in public/sitemap.xml + index.html JSON-LD)
 // if the site moves to a custom domain.
 
-export const SITE_URL = 'https://sanju-tours-and-travel.vercel.app';
+export const SITE_URL = 'https://www.sanjutoursandtravels.in';
 export const SITE_NAME = 'Sanju Tours & Travels';
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/assets/hero_travel_fleet.jpg`;
 
