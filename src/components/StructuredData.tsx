@@ -79,7 +79,11 @@ function buildGraph() {
       description: `Outstation cab from Hubballi to ${r.city} — ${r.distanceKm} km, ${r.durationLabel} via ${r.highway}.`,
       serviceType: 'Outstation Taxi',
       provider: { '@id': BUSINESS_ID },
-      areaServed: { '@type': 'City', name: r.city },
+      areaServed: {
+        '@type': 'City',
+        name: r.city,
+        geo: { '@type': 'GeoCoordinates', latitude: r.lat, longitude: r.lng },
+      },
       ...(fare
         ? {
             offers: {

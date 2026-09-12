@@ -6,6 +6,7 @@ import {
   DEFAULT_OG_IMAGE,
   PAGE_SEO,
   PAGE_CRUMB,
+  BUSINESS_GEO,
 } from '../data/site';
 import { getCabRoute } from '../data/routes';
 
@@ -71,6 +72,18 @@ export const Seo: React.FC = () => {
     upsertMeta('name', 'twitter:title', seo.title);
     upsertMeta('name', 'twitter:description', seo.description);
     upsertMeta('name', 'twitter:image', DEFAULT_OG_IMAGE);
+
+    // Geo meta tags — active per page, not a fixed copy-paste. Every page
+    // defaults to the business's own location; a route page instead points
+    // at its destination city, since that's the place the page is actually
+    // about, and updates the ICBM pair to match.
+    const geo = route
+      ? { placename: `Hubballi to ${route.shortCity}, Karnataka`, region: BUSINESS_GEO.region, lat: route.lat, lng: route.lng }
+      : BUSINESS_GEO;
+    upsertMeta('name', 'geo.region', geo.region);
+    upsertMeta('name', 'geo.placename', geo.placename);
+    upsertMeta('name', 'geo.position', `${geo.lat};${geo.lng}`);
+    upsertMeta('name', 'ICBM', `${geo.lat}, ${geo.lng}`);
 
     // BreadcrumbList — Home > <Page>. Only for known sub-pages.
     const existing = document.getElementById(BREADCRUMB_ID);

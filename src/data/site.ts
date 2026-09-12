@@ -6,6 +6,15 @@ export const SITE_URL = 'https://sanju-tours-and-travel.vercel.app';
 export const SITE_NAME = 'Sanju Tours & Travels';
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/assets/hero_travel_fleet.jpg`;
 
+// Business home base — the default geo target for every page except a
+// route-detail page, which points geo meta at its destination city instead.
+export const BUSINESS_GEO = {
+  placename: 'Hubballi, Karnataka',
+  region: 'IN-KA',
+  lat: 15.3647,
+  lng: 75.1240,
+};
+
 export interface PageSeo {
   title: string;
   description: string;

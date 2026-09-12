@@ -12,6 +12,10 @@ export interface CabRoute {
   highway: string;
   /** Real, well-known landmarks/arrival points in the destination city. */
   landmarks: string[];
+  /** Destination city-centre coordinates (published, not estimated) — drives
+   *  the dynamic geo meta tags and Service.areaServed.geo for this page. */
+  lat: number;
+  lng: number;
   /** Vehicle ids from vehicles.ts recommended for this trip length. */
   recommendedVehicleIds: string[];
   /** One genuine, route-specific detail — not filler. */
@@ -28,6 +32,8 @@ export const CAB_ROUTES: CabRoute[] = [
     durationLabel: '~1.5 hrs',
     highway: 'NH-67',
     landmarks: ['Gadag Bus Stand', 'Trikuteshwara Temple', 'Betageri'],
+    lat: 15.4310,
+    lng: 75.6298,
     recommendedVehicleIds: ['swift-dzire', 'swift-dzire-new'],
     note: 'A short, frequent run for business visits and the Trikuteshwara & Someshwara temple circuit — most bookings are same-day return.',
   },
@@ -40,6 +46,8 @@ export const CAB_ROUTES: CabRoute[] = [
     durationLabel: '~1.5 hrs',
     highway: 'NH-48',
     landmarks: ['Haveri Bus Stand', 'Haveri Railway Station', 'Siddheshwara Temple'],
+    lat: 14.7936,
+    lng: 75.4044,
     recommendedVehicleIds: ['swift-dzire', 'maruti-ertiga'],
     note: 'Straight NH-48 highway run, popular for district-office visits and onward connections toward Davangere and Chitradurga.',
   },
@@ -52,6 +60,8 @@ export const CAB_ROUTES: CabRoute[] = [
     durationLabel: '~2 hrs',
     highway: 'NH-4 / NH-748',
     landmarks: ['Belagavi Bus Stand', 'Belagavi Fort', 'Belagavi Railway Station'],
+    lat: 15.8497,
+    lng: 74.4977,
     recommendedVehicleIds: ['swift-dzire', 'maruti-ertiga'],
     note: 'A common corporate and college-visit route; also used as a stopover toward Goa and Kolhapur.',
   },
@@ -64,6 +74,8 @@ export const CAB_ROUTES: CabRoute[] = [
     durationLabel: '~2.5 hrs',
     highway: 'NH-367',
     landmarks: ['Bagalkot Bus Stand', 'Kudalasangama', 'Alamatti Dam'],
+    lat: 16.1691,
+    lng: 75.6997,
     recommendedVehicleIds: ['maruti-ertiga', 'innova-crysta'],
     note: 'Often booked alongside a Badami stop, since Bagalkot is the district headquarters just past the Badami heritage circuit.',
   },
@@ -76,6 +88,8 @@ export const CAB_ROUTES: CabRoute[] = [
     durationLabel: '~2.5 hrs',
     highway: 'NH-48',
     landmarks: ['Davangere Bus Stand', 'Davangere Railway Station'],
+    lat: 14.4644,
+    lng: 75.9218,
     recommendedVehicleIds: ['maruti-ertiga', 'swift-dzire-new'],
     note: 'A midway point on the Hubli–Bengaluru highway, frequently booked as a one-way business drop.',
   },
@@ -88,6 +102,8 @@ export const CAB_ROUTES: CabRoute[] = [
     durationLabel: '~3 hrs',
     highway: 'NH-367 / NH-50',
     landmarks: ['Hospet Railway Station', 'Hampi Bus Stand (7 km from Hospet)'],
+    lat: 15.2691,
+    lng: 76.3909,
     recommendedVehicleIds: ['maruti-ertiga', 'innova-crysta', 'tempo-traveller'],
     note: 'The gateway town for Hampi — most groups book this as a day trip to the Vijayanagara ruins with the driver waiting on-site.',
   },
@@ -100,6 +116,8 @@ export const CAB_ROUTES: CabRoute[] = [
     durationLabel: '~3.5 hrs',
     highway: 'NH-206',
     landmarks: ['Shivamogga Bus Stand', 'Jog Falls (via Sagar, ~100 km further)'],
+    lat: 13.9299,
+    lng: 75.5681,
     recommendedVehicleIds: ['maruti-ertiga', 'innova-crysta'],
     note: 'Gateway to the Malnad hill region and Jog Falls; the road runs through forested ghat stretches best driven in daylight.',
   },
@@ -112,6 +130,8 @@ export const CAB_ROUTES: CabRoute[] = [
     durationLabel: '~4 hrs',
     highway: 'NH-13 / NH-50',
     landmarks: ['Gol Gumbaz', 'Vijayapura Bus Stand', 'Ibrahim Rauza'],
+    lat: 16.8302,
+    lng: 75.7100,
     recommendedVehicleIds: ['innova-crysta', 'tempo-traveller'],
     note: 'Booked mainly for the Gol Gumbaz and Ibrahim Rauza monument circuit — a comfortable same-day round trip in an AC sedan or MUV.',
   },
@@ -124,6 +144,8 @@ export const CAB_ROUTES: CabRoute[] = [
     durationLabel: '~5 hrs',
     highway: 'NH-766 / SH-57',
     landmarks: ['Mullayanagiri', 'Chikmagalur Bus Stand', 'Baba Budangiri'],
+    lat: 13.3161,
+    lng: 75.7720,
     recommendedVehicleIds: ['innova-crysta', 'tempo-traveller'],
     note: 'A coffee-estate and hill-station route through the Western Ghats — best suited to an MUV or Tempo Traveller for the climbing sections.',
   },
@@ -136,6 +158,8 @@ export const CAB_ROUTES: CabRoute[] = [
     durationLabel: '~7 hrs',
     highway: 'NH-63 / NH-66',
     landmarks: ['Mangaluru Central Railway Station', 'Panambur Beach', 'Mangaluru Bus Stand (Bejai / Hampankatta)'],
+    lat: 12.9141,
+    lng: 74.8560,
     recommendedVehicleIds: ['innova-crysta', 'tempo-traveller'],
     note: 'Crosses the Western Ghats via Shivamogga — a long coastal run usually booked as an overnight or early-morning departure.',
   },
@@ -148,6 +172,8 @@ export const CAB_ROUTES: CabRoute[] = [
     durationLabel: '~8 hrs',
     highway: 'NH-48',
     landmarks: ['KSR Bengaluru City Railway Station', 'Kempegowda Bus Stand (Majestic)', 'Kempegowda International Airport'],
+    lat: 12.9716,
+    lng: 77.5946,
     recommendedVehicleIds: ['innova-crysta', 'tempo-traveller', 'tourist-coach'],
     note: 'Our most-booked long-distance route — the full NH-48 highway run, usually an overnight departure for a next-morning Bengaluru arrival.',
   },
@@ -160,6 +186,8 @@ export const CAB_ROUTES: CabRoute[] = [
     durationLabel: '~9.5 hrs',
     highway: 'NH-48 via Bengaluru / NH-766',
     landmarks: ['Mysore Palace', 'Mysuru Railway Station', 'Mysuru Bus Stand'],
+    lat: 12.2958,
+    lng: 76.6394,
     recommendedVehicleIds: ['innova-crysta', 'tempo-traveller'],
     note: 'The longest route we run — booked mainly for the Mysore Palace and Dasara season, almost always as an overnight multi-day trip.',
   },
