@@ -3,6 +3,7 @@ import { Phone, MessageSquare, MapPin, Clock, ShieldCheck, ArrowUpRight, Zap } f
 import { BookingForm } from '../components/BookingForm';
 import { BUSINESS_PHONE_DISPLAY, BUSINESS_ADDRESS, PHONE_TEL_HREF, CALL_ARIA_LABEL, whatsappHref } from '../utils/whatsapp';
 import { Reveal, StaggerGroup, StaggerItem } from '../components/motion/Reveal';
+import { Breadcrumb } from '../components/Breadcrumb';
 
 export const Contact: React.FC = () => {
   useEffect(() => {
@@ -79,6 +80,8 @@ export const Contact: React.FC = () => {
       </section>
 
       {/* Contact Information & Form Split */}
+      <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Contact' }]} />
+
       <section className="py-16 sm:py-24 bg-[#fff9eb] border-b border-[#200f07]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -150,8 +153,19 @@ export const Contact: React.FC = () => {
                 </StaggerItem>
 
                 <StaggerItem>
-                  {/* Office Location */}
-                  <div className="card-editorial p-5 flex items-center gap-4">
+                  {/* Office Location — schema.org PostalAddress microdata mirrors
+                      the JSON-LD in index.html, so the visible address and the
+                      structured data can never contradict each other. */}
+                  <div
+                    className="card-editorial p-5 flex items-center gap-4"
+                    itemScope
+                    itemProp="address"
+                    itemType="https://schema.org/PostalAddress"
+                  >
+                    <meta itemProp="addressLocality" content="Hubballi" />
+                    <meta itemProp="addressRegion" content="Karnataka" />
+                    <meta itemProp="postalCode" content="580031" />
+                    <meta itemProp="addressCountry" content="IN" />
                     <div className="w-11 h-11 rounded-full bg-[#200f07]/10 text-[#200f07] border border-[#200f07]/20 flex items-center justify-center shrink-0">
                       <MapPin className="w-5 h-5" strokeWidth={1.75} />
                     </div>
@@ -159,7 +173,7 @@ export const Contact: React.FC = () => {
                       <p className="font-display font-bold text-xs uppercase tracking-wider text-[#200f07]/70">
                         Office &amp; Unkal Counter
                       </p>
-                      <p className="font-display font-bold text-sm text-[#200f07]">
+                      <p className="font-display font-bold text-sm text-[#200f07]" itemProp="streetAddress">
                         {BUSINESS_ADDRESS}
                       </p>
                       <p className="text-[11px] text-[#200f07]/70">

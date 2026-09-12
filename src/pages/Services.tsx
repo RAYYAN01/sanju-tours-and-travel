@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { ListChecks, Car, FileCheck2, ThumbsUp, ArrowDown, PlaneTakeoff, Route, Building2, Sparkles } from 'lucide-react';
 import { ServicesSection } from '../components/ServicesSection';
 import { CTASection } from '../components/CTASection';
+import { Breadcrumb } from '../components/Breadcrumb';
 import { Reveal, StaggerGroup, StaggerItem } from '../components/motion/Reveal';
 
 export const Services: React.FC = () => {
@@ -20,7 +21,7 @@ export const Services: React.FC = () => {
       step: '02',
       Icon: Car,
       title: 'Select a Vehicle',
-      desc: 'From compact Dzire sedans to spacious 17-seater Tempo Travellers or 55-seater tourist coaches sized to your group and luggage.'
+      desc: 'From compact Dzire sedans to a 12-seater Tempo Traveller or a 33-seater tourist coach, sized to your group and luggage.'
     },
     {
       step: '03',
@@ -58,7 +59,7 @@ export const Services: React.FC = () => {
 
           <Reveal y={10} delay={0.1}>
             <h1 className="font-display text-xl sm:text-3xl lg:text-5xl xl:text-6xl font-extrabold text-white tracking-tight leading-[1.1] whitespace-nowrap">
-              Travel Services, Made Simple.
+              Travel Services in Hubballi, Karnataka.
             </h1>
           </Reveal>
 
@@ -102,6 +103,8 @@ export const Services: React.FC = () => {
           </Reveal>
         </div>
       </section>
+
+      <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services' }]} />
 
       {/* Services Grid */}
       <ServicesSection showViewAll={false} />

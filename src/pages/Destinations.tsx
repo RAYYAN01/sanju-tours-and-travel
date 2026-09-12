@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { DestinationsSection } from '../components/DestinationsSection';
 import { RouteTravelSection } from '../components/RouteTravelSection';
 import { CTASection } from '../components/CTASection';
+import { Breadcrumb } from '../components/Breadcrumb';
 import { Compass, Waves, Landmark, Palmtree } from 'lucide-react';
 import { Reveal, StaggerGroup, StaggerItem } from '../components/motion/Reveal';
 
@@ -38,6 +39,8 @@ export const Destinations: React.FC = () => {
           <RouteTravelSection />
         </div>
       </section>
+
+      <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Destinations' }]} />
 
       {/* Destinations Grid */}
       <DestinationsSection showViewAll={false} />

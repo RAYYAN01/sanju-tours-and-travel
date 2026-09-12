@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, Heart, Award, ArrowRight, Users, Headset, ArrowDown } from 'lucide-react';
 import { CTASection } from '../components/CTASection';
+import { Breadcrumb } from '../components/Breadcrumb';
 import { useBookingModal } from '../context/BookingModalContext';
 import { Reveal, StaggerGroup, StaggerItem } from '../components/motion/Reveal';
 import { Counter } from '../components/motion/Counter';
@@ -80,6 +81,8 @@ export const About: React.FC = () => {
       </section>
 
       {/* Company Story Split */}
+      <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'About' }]} />
+
       <section id="our-story" className="py-16 sm:py-24 bg-[#fff9eb] border-b border-[#200f07]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">

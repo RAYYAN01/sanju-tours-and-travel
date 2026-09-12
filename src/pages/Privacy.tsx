@@ -8,6 +8,7 @@ import {
   PHONE_TEL_HREF,
 } from '../utils/whatsapp';
 import { Reveal } from '../components/motion/Reveal';
+import { Breadcrumb } from '../components/Breadcrumb';
 
 /*
  * Plain-language privacy notice aligned to Indian law — the Digital
@@ -37,6 +38,7 @@ export const Privacy: React.FC = () => {
 
   return (
     <main className="bg-[#fff9eb]">
+      <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Privacy Policy' }]} />
       <section className="pt-10 sm:pt-16 pb-16 sm:pb-24 border-b border-[#200f07]/10">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="space-y-4 mb-10">

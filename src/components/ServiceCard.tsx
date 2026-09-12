@@ -73,7 +73,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
           to="/services"
           className="text-xs font-display font-bold text-[#200f07] hover:text-[#200f07] flex items-center gap-1 uppercase tracking-wider transition-colors duration-150"
         >
-          <span>Learn Details</span>
+          <span>Learn More</span>
           <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
         </Link>
 

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, MapPin, Clock, ArrowDown } from 'lucide-react';
 import { CAB_ROUTES, estimateFare } from '../data/routes';
 import { CTASection } from '../components/CTASection';
+import { Breadcrumb } from '../components/Breadcrumb';
 import { Reveal, StaggerGroup, StaggerItem } from '../components/motion/Reveal';
 
 export const RoutesHub: React.FC = () => {
@@ -50,6 +51,8 @@ export const RoutesHub: React.FC = () => {
           </Reveal>
         </div>
       </section>
+
+      <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Popular Routes' }]} />
 
       <section id="routes-grid" className="py-16 sm:py-24 bg-[#fff9eb] border-b border-[#200f07]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

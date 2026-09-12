@@ -5,7 +5,6 @@ import {
   Clock,
   Navigation,
   MessageSquare,
-  ArrowLeft,
   ArrowRight,
   Milestone,
   Route as RouteIcon,
@@ -14,6 +13,7 @@ import { CAB_ROUTES, getCabRoute, estimateFare } from '../data/routes';
 import { VEHICLES } from '../data/vehicles';
 import { whatsappHref, PHONE_TEL_HREF, CALL_ARIA_LABEL } from '../utils/whatsapp';
 import { CTASection } from '../components/CTASection';
+import { Breadcrumb } from '../components/Breadcrumb';
 import { Reveal, StaggerGroup, StaggerItem } from '../components/motion/Reveal';
 
 export const RoutePage: React.FC = () => {
@@ -47,18 +47,16 @@ export const RoutePage: React.FC = () => {
 
   return (
     <main>
-      <section className="pt-10 sm:pt-16 pb-16 sm:pb-24 border-b border-[#200f07]/10 bg-[#fff9eb]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <Link
-              to="/routes"
-              className="inline-flex items-center gap-1.5 text-xs font-display font-bold uppercase tracking-wider text-[#200f07]/70 hover:text-[#200f07] transition-colors mb-6"
-            >
-              <ArrowLeft className="w-3.5 h-3.5" />
-              All Routes
-            </Link>
-          </Reveal>
+      <Breadcrumb
+        items={[
+          { label: 'Home', href: '/' },
+          { label: 'Popular Routes', href: '/routes' },
+          { label: `Hubli to ${route.shortCity}` },
+        ]}
+      />
 
+      <section className="pt-6 sm:pt-10 pb-16 sm:pb-24 border-b border-[#200f07]/10 bg-[#fff9eb]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal delay={0.05} className="space-y-3">
             <span className="badge-tag bg-[#200f07]/10 text-[#200f07]">{route.region}</span>
             <h1 className="font-display text-2xl sm:text-4xl font-extrabold text-[#200f07] tracking-tight">

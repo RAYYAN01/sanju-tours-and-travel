@@ -41,4 +41,40 @@ export const FAQS: FAQ[] = [
       'Yes — group and wedding transport is one of our main services. We run a 12-seater Force Tempo Traveller and a 33-seater tourist coach, and coordinate timing with railway arrivals at Hubballi Junction, airport drops and hotel-to-venue convoys.',
     category: 'Weddings & Groups',
   },
+  {
+    question: 'What is "driver bata" and why is it charged separately?',
+    answer:
+      'Driver bata is a fixed daily allowance (₹300–₹800/day depending on the vehicle) that covers the driver\'s food and stay on multi-day outstation trips. It is shown separately from the per-km rate on every quote, not hidden inside the fare.',
+    category: 'Pricing',
+  },
+  {
+    question: 'Do you charge extra for night pickups or early-morning airport drops?',
+    answer:
+      'No. Our rates are the same round the clock — a 4 AM Hubballi Airport (HBX) drop or a late-night railway station pickup costs the same per-km rate as a daytime trip. Dispatch is staffed 24/7.',
+    category: 'Pricing',
+  },
+  {
+    question: 'How far in advance should I book a Tempo Traveller or coach for a wedding?',
+    answer:
+      'For weddings and large group events we recommend booking 1–2 weeks ahead, especially in the November–February wedding season, since our 12-seater Tempo Traveller and tourist coach are the first vehicles to fill up. Smaller sedans can usually be arranged with a day\'s notice.',
+    category: 'Weddings & Groups',
+  },
+  {
+    question: 'Is there a luggage limit for outstation trips?',
+    answer:
+      'A sedan comfortably carries 2 medium bags, an Innova Crysta or Ertiga around 3–4, and our Tempo Traveller or tourist coach handle a full group\'s luggage in the rear bay or roof carrier. Tell us your bag count when booking so we recommend the right vehicle.',
+    category: 'Services',
+  },
+  {
+    question: 'Do you offer corporate monthly billing for regular office pickups?',
+    answer:
+      'Yes. We run monthly contracts for corporate staff transit and executive travel with consolidated GST billing, rather than paying per trip. Contact us with your daily pickup points and shift timings for a monthly quote.',
+    category: 'Services',
+  },
+  {
+    question: 'Do you serve destinations outside North Karnataka, like Bengaluru or Mysuru?',
+    answer:
+      'Yes. Alongside Hubli-Dharwad and North Karnataka, we run outstation cabs across the state — Bengaluru, Mysuru, Mangaluru, Belagavi, Hospet (Hampi), Chikmagalur and more. See our route pages for real distances, drive times and starting fares.',
+    category: 'Outstation',
+  },
 ];

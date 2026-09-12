@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowDown, Waves, Landmark, Mountain, MapPinned } from 'lucide-react';
 import { PackageCard } from '../components/PackageCard';
 import { CTASection } from '../components/CTASection';
+import { Breadcrumb } from '../components/Breadcrumb';
 import { PACKAGES } from '../data/packages';
 import { Reveal, StaggerGroup, StaggerItem } from '../components/motion/Reveal';
 
@@ -32,7 +34,7 @@ export const Packages: React.FC = () => {
 
           <Reveal y={10} delay={0.1}>
             <h1 className="font-display text-xl sm:text-3xl lg:text-5xl xl:text-6xl font-extrabold text-white tracking-tight leading-[1.1] whitespace-nowrap">
-              Handpicked Tours, Ready to Go.
+              Tour Packages from Hubballi, Karnataka.
             </h1>
           </Reveal>
 
@@ -77,6 +79,8 @@ export const Packages: React.FC = () => {
         </div>
       </section>
 
+      <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Tour Packages' }]} />
+
       {/* All Packages Grid */}
       <section id="packages-grid" className="py-16 sm:py-24 bg-[#fff9eb] border-b border-[#200f07]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -87,6 +91,34 @@ export const Packages: React.FC = () => {
               </StaggerItem>
             ))}
           </StaggerGroup>
+        </div>
+      </section>
+
+      {/* Topical body content for on-page depth */}
+      <section className="py-12 sm:py-16 bg-[#fff9eb] border-b border-[#200f07]/10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+          <h2 className="font-display text-xl sm:text-2xl font-bold text-[#200f07]">
+            Multi-Day Tour Packages from Hubballi
+          </h2>
+          <p className="text-sm text-[#200f07]/70 leading-relaxed">
+            Each package above is a ready-made itinerary you can adjust — swap the vehicle,
+            add a day, or combine two circuits. We run these primarily in an Innova Crysta or
+            a 12-seater Tempo Traveller so families and small groups travel together
+            comfortably, with an experienced highway driver who knows the ghat sections on
+            the Dandeli, Badami-Hampi and Gokarna-Murudeshwar routes. Every quote includes the
+            per-km rate, driver bata and toll estimate in writing before you confirm.
+          </p>
+          <p className="text-sm text-[#200f07]/70 leading-relaxed">
+            Travelling somewhere not listed here? Check our{' '}
+            <Link to="/routes" className="font-semibold text-[#200f07] underline decoration-[#200f07]/30 hover:decoration-[#200f07]">
+              outstation route pages
+            </Link>{' '}
+            for one-way and round-trip cabs to every major Karnataka city, or{' '}
+            <Link to="/contact" className="font-semibold text-[#200f07] underline decoration-[#200f07]/30 hover:decoration-[#200f07]">
+              contact us
+            </Link>{' '}
+            for a fully custom itinerary.
+          </p>
         </div>
       </section>
 
