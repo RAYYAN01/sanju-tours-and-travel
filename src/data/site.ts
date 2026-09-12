@@ -12,46 +12,48 @@ export interface PageSeo {
 }
 
 // Per-route metadata. Keys are the router pathnames.
+// Titles kept to <=60 chars and descriptions to <=155 chars so Google
+// doesn't truncate them in search results.
 export const PAGE_SEO: Record<string, PageSeo> = {
   '/': {
-    title: 'Sanju Tours & Travels | Cab, Taxi & Vehicle Rental in Hubballi, Karnataka',
+    title: 'Sanju Tours & Travels | Cabs in Hubballi, Karnataka',
     description:
-      'Reliable car, cab, Tempo Traveller and luxury coach rental in Hubli-Dharwad. Transparent per-km pricing, verified drivers, 24/7 airport transfers and outstation tours.',
+      'Reliable cab, Tempo Traveller and coach rental in Hubli-Dharwad. Transparent per-km pricing, verified drivers, 24/7 airport transfers.',
   },
   '/about': {
-    title: 'About Sanju Tours & Travels | 10+ Years of Trusted Travel in Hubballi',
+    title: 'About Sanju Tours & Travels | Hubballi Cab Operator',
     description:
-      'A decade of dependable journeys across North Karnataka. Verified commercial chauffeurs, a sanitized fleet, and written per-km quotations from a local Hubballi operator.',
+      'A decade of dependable journeys across North Karnataka — verified chauffeurs, a sanitized fleet, written per-km quotes.',
   },
   '/fleet': {
-    title: 'Our Fleet | Sedans, SUVs, Tempo Travellers & Coaches in Hubballi',
+    title: 'Our Fleet | Cars, Tempo Travellers & Coaches, Hubballi',
     description:
-      'Browse the Sanju Tours & Travels fleet — Swift Dzire, Innova Crysta, Ertiga, Force Trax, 12–17 seater Tempo Travellers and tourist coaches with clear per-km rates.',
+      'Browse our Hubballi fleet — sedans, Ertiga, Innova Crysta, Tempo Travellers and coaches, all with clear per-km rates.',
   },
   '/services': {
-    title: 'Travel Services | Airport Transfers, Outstation & Corporate Cabs, Hubballi',
+    title: 'Travel Services | Hubballi Airport, Outstation & Corporate',
     description:
-      'Hubballi Airport (HBX) transfers, outstation round-trips and one-way drops, local twin-city rentals, corporate travel, wedding shuttles and custom holiday tours.',
+      'Hubballi Airport transfers, outstation drops, local rentals, corporate travel, wedding shuttles and custom tours.',
   },
   '/destinations': {
-    title: 'Destinations & Road Trips from Hubballi | Goa, Dandeli, Hampi, Gokarna',
+    title: 'Destinations from Hubballi | Goa, Dandeli, Hampi, Gokarna',
     description:
-      'Popular getaways from Hubli by road — Dandeli rafting, Badami & Hampi heritage circuits, Gokarna and Goa beaches, Jog Falls. Distances, drive times and cab options.',
+      'Popular road trips from Hubli — Dandeli rafting, Badami-Hampi heritage, Gokarna and Goa beaches, with distances and drive times.',
   },
   '/packages': {
-    title: 'Tour Packages | Curated Multi-Day Trips from Hubballi, Karnataka',
+    title: 'Tour Packages from Hubballi, Karnataka',
     description:
-      'Ready-made, customizable road-trip itineraries from Hubballi — Dandeli adventure, Chalukya heritage, Hampi imperial trail and the Gokarna–Murudeshwar coast.',
+      'Ready-made road-trip itineraries from Hubballi — Dandeli, Badami-Hampi heritage and the Gokarna-Murudeshwar coast.',
   },
   '/contact': {
-    title: 'Contact Sanju Tours & Travels | Book a Cab in Hubballi — 24/7 Dispatch',
+    title: 'Contact Sanju Tours & Travels | Hubballi, 24/7 Dispatch',
     description:
-      'Call or WhatsApp our Hubballi dispatch desk on +91 73381 48518 for instant quotes, airport pickups and outstation bookings. Office at Unkal, P.B. Road, Hubli.',
+      'Call or WhatsApp +91 73381 48518 for instant quotes, airport pickups and outstation bookings. Office at Unkal, Hubli.',
   },
   '/privacy': {
     title: 'Privacy Policy | Sanju Tours & Travels',
     description:
-      'How Sanju Tours & Travels collects, uses, shares and protects your personal data, and your rights under India’s Digital Personal Data Protection Act, 2023.',
+      'How Sanju Tours & Travels collects, uses and protects your data under India’s Digital Personal Data Protection Act, 2023.',
   },
 };
 
