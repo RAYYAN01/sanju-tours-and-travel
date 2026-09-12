@@ -7,6 +7,7 @@ import { AboutSection } from '../components/AboutSection';
 import { FleetSection } from '../components/FleetSection';
 import { ServicesSection } from '../components/ServicesSection';
 import { DestinationsSection } from '../components/DestinationsSection';
+import { RoutesSection } from '../components/RoutesSection';
 import { WhyUsSection } from '../components/WhyUsSection';
 import { TestimonialsSection } from '../components/TestimonialsSection';
 import { FAQAccordion } from '../components/FAQAccordion';
@@ -35,7 +36,7 @@ export const Home: React.FC = () => {
 
   return (
     <main>
-      <h1 className="sr-only">Sanju Tours &amp; Travels - Cab and Vehicle Rental in Hubli, Karnataka</h1>
+      <h1 className="sr-only">Sanju Tours &amp; Travels — Cab, Taxi &amp; Outstation Vehicle Rental in Hubli, Serving All of Karnataka</h1>
       {/* 1. Hero Section */}
       <Hero />
 
@@ -58,6 +59,9 @@ export const Home: React.FC = () => {
 
       {/* 7. Destinations Section */}
       <DestinationsSection limit={3} />
+
+      {/* 8. Outstation Routes Across Karnataka */}
+      <RoutesSection limit={6} />
 
       {/* 10. Testimonials */}
       <TestimonialsSection />

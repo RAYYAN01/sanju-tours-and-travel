@@ -55,6 +55,11 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     description:
       'How Sanju Tours & Travels collects, uses and protects your data under India’s Digital Personal Data Protection Act, 2023.',
   },
+  '/routes': {
+    title: 'Outstation Cab Routes Across Karnataka | Sanju Tours & Travels',
+    description:
+      'Book a cab from Hubli to Bengaluru, Mysuru, Mangaluru, Belagavi, Hampi and more — real distances, drive times and per-km rates.',
+  },
 };
 
 // Human-readable crumb label per route, for BreadcrumbList schema.
@@ -66,6 +71,7 @@ export const PAGE_CRUMB: Record<string, string> = {
   '/packages': 'Tour Packages',
   '/contact': 'Contact',
   '/privacy': 'Privacy Policy',
+  '/routes': 'Popular Routes',
 };
 
 // Routes whose hero sits full-bleed behind the navbar — these get the
@@ -78,4 +84,5 @@ export const TRANSPARENT_HERO_ROUTES = [
   '/destinations',
   '/packages',
   '/contact',
+  '/routes',
 ];

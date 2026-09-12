@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { SITE_URL } from '../data/site';
 import { VEHICLES } from '../data/vehicles';
 import { SERVICES } from '../data/services';
+import { CAB_ROUTES, estimateFare } from '../data/routes';
 
 /**
  * Enhancement schema for JS-capable crawlers: the per-vehicle pricing
@@ -67,9 +68,34 @@ function buildGraph() {
     ],
   }));
 
+  // One Service node per outstation route — a service area, never a second
+  // LocalBusiness — referencing the same business @id via areaServed.
+  const routeServices = CAB_ROUTES.map((r) => {
+    const fare = estimateFare(r);
+    return {
+      '@type': 'Service',
+      '@id': `${SITE_URL}/routes/${r.slug}#service`,
+      name: `Hubli to ${r.city} Taxi`,
+      description: `Outstation cab from Hubballi to ${r.city} — ${r.distanceKm} km, ${r.durationLabel} via ${r.highway}.`,
+      serviceType: 'Outstation Taxi',
+      provider: { '@id': BUSINESS_ID },
+      areaServed: { '@type': 'City', name: r.city },
+      ...(fare
+        ? {
+            offers: {
+              '@type': 'Offer',
+              price: fare.amount,
+              priceCurrency: 'INR',
+              description: `From ₹${fare.amount} one-way in a ${fare.vehicleName} (approx.)`,
+            },
+          }
+        : {}),
+    };
+  });
+
   return {
     '@context': 'https://schema.org',
-    '@graph': [fleetCatalog, ...services],
+    '@graph': [fleetCatalog, ...services, ...routeServices],
   };
 }
 

@@ -7,6 +7,7 @@ import {
   PAGE_SEO,
   PAGE_CRUMB,
 } from '../data/site';
+import { getCabRoute } from '../data/routes';
 
 /**
  * Head manager for the SPA — no external dependency.
@@ -41,8 +42,18 @@ export const Seo: React.FC = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const path = PAGE_SEO[pathname] ? pathname : '/';
-    const seo = PAGE_SEO[path];
+    // Dynamic route-detail pages (/routes/:slug) build their own title/
+    // description/breadcrumb from the route data instead of the static map.
+    const routeMatch = pathname.match(/^\/routes\/([^/]+)$/);
+    const route = routeMatch ? getCabRoute(routeMatch[1]) : undefined;
+
+    const path = route ? pathname : PAGE_SEO[pathname] ? pathname : '/';
+    const seo = route
+      ? {
+          title: `Hubli to ${route.shortCity} Taxi & Cab Service | Sanju Tours & Travels`,
+          description: `Book a cab from Hubli to ${route.city} — ${route.distanceKm} km, ${route.durationLabel} via ${route.highway}. Transparent per-km rates, 24/7 dispatch.`,
+        }
+      : PAGE_SEO[path];
     const canonical = path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`;
 
     document.title = seo.title;
@@ -65,24 +76,29 @@ export const Seo: React.FC = () => {
     const existing = document.getElementById(BREADCRUMB_ID);
     if (existing) existing.remove();
 
-    if (path !== '/' && PAGE_CRUMB[path]) {
+    const trail = route
+      ? [
+          { name: 'Home', item: `${SITE_URL}/` },
+          { name: 'Popular Routes', item: `${SITE_URL}/routes` },
+          { name: `Hubli to ${route.shortCity}`, item: canonical },
+        ]
+      : path !== '/' && PAGE_CRUMB[path]
+        ? [
+            { name: 'Home', item: `${SITE_URL}/` },
+            { name: PAGE_CRUMB[path], item: canonical },
+          ]
+        : null;
+
+    if (trail) {
       const crumb = {
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
-        itemListElement: [
-          {
-            '@type': 'ListItem',
-            position: 1,
-            name: 'Home',
-            item: `${SITE_URL}/`,
-          },
-          {
-            '@type': 'ListItem',
-            position: 2,
-            name: PAGE_CRUMB[path],
-            item: canonical,
-          },
-        ],
+        itemListElement: trail.map((t, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: t.name,
+          item: t.item,
+        })),
       };
       const script = document.createElement('script');
       script.type = 'application/ld+json';
