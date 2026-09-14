@@ -1,4 +1,4 @@
-import { VEHICLES } from './vehicles';
+import { VEHICLES, parseRatePerKm } from './vehicles';
 
 export interface CabRoute {
   slug: string;
@@ -206,8 +206,8 @@ export function estimateFare(route: CabRoute): { vehicleName: string; amount: nu
 
   let best: { vehicleName: string; amount: number } | null = null;
   for (const v of candidates) {
-    const perKm = parseInt(v.rateNonAc.replace(/[^\d]/g, ''), 10);
-    if (!Number.isFinite(perKm)) continue;
+    const perKm = parseRatePerKm(v.rateNonAc);
+    if (perKm === null) continue;
     const amount = perKm * route.distanceKm;
     if (!best || amount < best.amount) best = { vehicleName: v.name, amount };
   }

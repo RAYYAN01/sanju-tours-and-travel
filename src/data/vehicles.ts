@@ -19,6 +19,12 @@ export interface Vehicle {
   imageUrl: string;
 }
 
+/** Parses a rate string like "₹14/km" into a plain number (14). */
+export function parseRatePerKm(rate: string): number | null {
+  const n = parseInt(rate.replace(/[^\d]/g, ''), 10);
+  return Number.isFinite(n) && n > 0 ? n : null;
+}
+
 export const VEHICLES: Vehicle[] = [
   {
     id: 'swift-dzire',

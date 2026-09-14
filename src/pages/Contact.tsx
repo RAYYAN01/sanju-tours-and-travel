@@ -205,7 +205,7 @@ export const Contact: React.FC = () => {
 
             {/* RIGHT: Booking Form Widget */}
             <Reveal className="lg:col-span-7" delay={0.1} y={24}>
-              <BookingForm variant="card" />
+              <BookingForm />
 
               {/* Embedded Google Map */}
               <div className="mt-8 rounded-card overflow-hidden border border-[#200f07]/15 shadow-card bg-[#fff9eb] p-4">

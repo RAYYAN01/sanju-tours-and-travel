@@ -53,15 +53,22 @@ export const Seo: React.FC = () => {
     const area = areaMatch ? getLocalArea(areaMatch[1]) : undefined;
 
     const path = route || area ? pathname : PAGE_SEO[pathname] ? pathname : '/';
+    // Titles kept to <=60 chars (see src/data/site.ts) — short brand suffix,
+    // and a title-only short name for areas with a parenthetical (e.g. "Old
+    // Hubli (Durgadbail)" -> "Old Hubli"), full name used everywhere else.
+    const areaTitleName = area?.name.split(' (')[0];
     const seo = route
       ? {
-          title: `Hubli to ${route.shortCity} Taxi & Cab Service | Sanju Tours & Travels`,
+          title: `Hubli to ${route.shortCity} Taxi & Cab Service | Sanju Tours`,
           description: `Book a cab from Hubli to ${route.city} — ${route.distanceKm} km, ${route.durationLabel} via ${route.highway}. Transparent per-km rates, 24/7 dispatch.`,
         }
       : area
         ? {
-            title: `Cab Service in ${area.name}, ${area.city} | Sanju Tours & Travels`,
-            description: `Taxi pickups and drops in ${area.name}, ${area.city}. ${area.distanceNote} Call or WhatsApp for instant booking.`,
+            title:
+              area.name === area.city
+                ? `Cab Service in ${areaTitleName} | Sanju Tours`
+                : `Cab Service in ${areaTitleName}, ${area.city} | Sanju Tours`,
+            description: `Taxi pickups and drops in ${areaTitleName}, ${area.city}. ${area.distanceNote} Call or WhatsApp for instant booking.`,
           }
         : PAGE_SEO[path];
     const canonical = path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`;

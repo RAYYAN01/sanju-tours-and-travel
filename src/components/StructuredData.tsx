@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { SITE_URL } from '../data/site';
-import { VEHICLES } from '../data/vehicles';
+import { VEHICLES, parseRatePerKm } from '../data/vehicles';
 import { SERVICES } from '../data/services';
 import { CAB_ROUTES, estimateFare } from '../data/routes';
 import { LOCAL_AREAS } from '../data/localities';
@@ -16,18 +16,13 @@ import { LOCAL_AREAS } from '../data/localities';
 const SCRIPT_ID = 'structured-data-graph';
 const BUSINESS_ID = `${SITE_URL}/#business`;
 
-const toPerKm = (rate: string): number | null => {
-  const n = parseInt(rate.replace(/[^\d]/g, ''), 10);
-  return Number.isFinite(n) && n > 0 ? n : null;
-};
-
 function buildGraph() {
   const fleetCatalog = {
     '@type': 'OfferCatalog',
     '@id': `${SITE_URL}/#fleet`,
     name: 'Sanju Tours & Travels — fleet and per-kilometre rates',
     itemListElement: VEHICLES.map((v) => {
-      const nonAc = toPerKm(v.rateNonAc);
+      const nonAc = parseRatePerKm(v.rateNonAc);
       return {
         '@type': 'Offer',
         name: `${v.name} rental in Hubballi (${v.seating})`,
