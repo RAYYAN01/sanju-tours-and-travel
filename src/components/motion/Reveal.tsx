@@ -15,7 +15,6 @@ interface RevealProps {
   delay?: number;
   y?: number;
   amount?: number;
-  as?: 'div' | 'span';
 }
 
 export const Reveal: React.FC<RevealProps> = ({

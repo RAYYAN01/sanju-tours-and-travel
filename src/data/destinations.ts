@@ -46,7 +46,7 @@ export const DESTINATIONS: Destination[] = [
     description: 'The monumental capital of the 14th-century Vijayanagara Empire, set against an ancient surreal landscape of giant granite boulders and sacred riverbanks.',
     attractions: ['Virupaksha Temple', 'Vijaya Vittala Stone Chariot', 'Lotus Mahal & Elephant Stables', 'Tungabhadra River Sunset Coracle Ride'],
     imageUrl: '/assets/destination_hampi.jpeg',
-    popularVehicle: 'Innova Crysta / Force Urbania'
+    popularVehicle: 'Innova Crysta / Tempo Traveller'
   },
   {
     id: 'gokarna',
@@ -58,7 +58,7 @@ export const DESTINATIONS: Destination[] = [
     description: 'Where the Western Ghats meet the Arabian Sea. Unspoilt crescent beaches, sacred coastal shrines, and serene coastal sunsets.',
     attractions: ['Om Beach & Kudle Beach', 'Mahabaleshwar Coastal Temple', 'Mirjan Fort Heritage', 'Karwar Rabindranath Tagore Beach'],
     imageUrl: '/assets/destination_gokarna.jpeg',
-    popularVehicle: 'Ertiga / Innova / Tempo Traveller'
+    popularVehicle: 'Maruti Ertiga / Innova Crysta'
   },
   {
     id: 'goa',
@@ -70,7 +70,7 @@ export const DESTINATIONS: Destination[] = [
     description: 'A smooth highway drive over the ghats into sun-kissed beaches, colonial Portuguese architecture, and premier beachside dining.',
     attractions: ['South Goa Quiet Beaches', 'North Goa Heritage & Cafes', 'Old Goa Basilica of Bom Jesus', 'Dudhsagar Waterfalls Trek'],
     imageUrl: '/assets/destination_goa.jpeg',
-    popularVehicle: 'Innova Crysta / 17-Seater Tempo'
+    popularVehicle: 'Innova Crysta / Tempo Traveller'
   },
   {
     id: 'jog-falls',

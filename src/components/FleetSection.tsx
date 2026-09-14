@@ -34,7 +34,7 @@ export const FleetSection: React.FC<FleetSectionProps> = ({ limit, showViewAll =
               A Vehicle for <span className="font-accent italic font-bold text-[#8fae52]">Every Group Size</span>
             </h2>
             <p className="mt-1.5 text-xs sm:text-sm text-[#200f07]/70 max-w-xl">
-              From compact sedans for twin-city business trips to 55-seater tourist coaches for grand wedding convoys — maintained, sanitized, and ready for your departure.
+              From compact sedans for twin-city business trips to a 33-seater tourist coach for grand wedding convoys — maintained, sanitized, and ready for your departure.
             </p>
           </div>
 

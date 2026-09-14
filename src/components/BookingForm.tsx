@@ -121,11 +121,12 @@ export const BookingForm: React.FC<BookingFormProps> = ({ variant = 'card' }) =>
             
             {/* Pickup Location */}
             <div className="bg-[#fff9eb] border border-[#200f07]/12 hover:border-[#200f07]/70 focus-within:border-[#200f07] focus-within:ring-2 focus-within:ring-[#200f07]/15 rounded-xl p-2.5 sm:p-3 transition-[border-color,box-shadow] duration-150">
-              <label className="flex items-center gap-1.5 text-[10px] font-display font-bold uppercase tracking-wider text-[#200f07] mb-1">
+              <label htmlFor="bkf-bar-pickup" className="flex items-center gap-1.5 text-[10px] font-display font-bold uppercase tracking-wider text-[#200f07] mb-1">
                 <MapPin className="w-3.5 h-3.5 text-[#200f07]" />
                 <span>Pickup Point</span>
               </label>
               <input
+                id="bkf-bar-pickup"
                 type="text"
                 placeholder="Hubballi / Station / Airport"
                 value={formData.pickup}
@@ -136,11 +137,12 @@ export const BookingForm: React.FC<BookingFormProps> = ({ variant = 'card' }) =>
 
             {/* Destination / Drop */}
             <div className="bg-[#fff9eb] border border-[#200f07]/12 hover:border-[#200f07]/70 focus-within:border-[#200f07] focus-within:ring-2 focus-within:ring-[#200f07]/15 rounded-xl p-2.5 sm:p-3 transition-[border-color,box-shadow] duration-150">
-              <label className="flex items-center gap-1.5 text-[10px] font-display font-bold uppercase tracking-wider text-[#200f07] mb-1">
+              <label htmlFor="bkf-bar-destination" className="flex items-center gap-1.5 text-[10px] font-display font-bold uppercase tracking-wider text-[#200f07] mb-1">
                 <Navigation className="w-3.5 h-3.5 text-[#200f07]" />
                 <span>Destination / Drop</span>
               </label>
               <input
+                id="bkf-bar-destination"
                 type="text"
                 placeholder={tripType === 'local' ? 'Local Sightseeing / Errands' : 'Goa, Dandeli, Gokarna, Bengaluru...'}
                 value={formData.destination}
@@ -151,11 +153,12 @@ export const BookingForm: React.FC<BookingFormProps> = ({ variant = 'card' }) =>
 
             {/* Departure Date */}
             <div className="bg-[#fff9eb] border border-[#200f07]/12 hover:border-[#200f07]/70 focus-within:border-[#200f07] focus-within:ring-2 focus-within:ring-[#200f07]/15 rounded-xl p-2.5 sm:p-3 transition-[border-color,box-shadow] duration-150">
-              <label className="flex items-center gap-1.5 text-[10px] font-display font-bold uppercase tracking-wider text-[#200f07] mb-1">
+              <label htmlFor="bkf-bar-date" className="flex items-center gap-1.5 text-[10px] font-display font-bold uppercase tracking-wider text-[#200f07] mb-1">
                 <Calendar className="w-3.5 h-3.5 text-[#200f07]" />
                 <span>Travel Date *</span>
               </label>
               <input
+                id="bkf-bar-date"
                 type="date"
                 required
                 min={todayStr}
@@ -168,11 +171,12 @@ export const BookingForm: React.FC<BookingFormProps> = ({ variant = 'card' }) =>
             {/* Return Date (Shown only for Round-Trip) */}
             {tripType === 'outstation' && (
               <div className="bg-[#fff9eb] border border-[#200f07]/12 hover:border-[#200f07]/70 focus-within:border-[#200f07] focus-within:ring-2 focus-within:ring-[#200f07]/15 rounded-xl p-2.5 sm:p-3 transition-[border-color,box-shadow] duration-150">
-                <label className="flex items-center gap-1.5 text-[10px] font-display font-bold uppercase tracking-wider text-[#200f07] mb-1">
+                <label htmlFor="bkf-bar-return-date" className="flex items-center gap-1.5 text-[10px] font-display font-bold uppercase tracking-wider text-[#200f07] mb-1">
                   <Calendar className="w-3.5 h-3.5 text-[#200f07]" />
                   <span>Return Date</span>
                 </label>
                 <input
+                  id="bkf-bar-return-date"
                   type="date"
                   min={formData.date || todayStr}
                   value={formData.returnDate}
@@ -189,11 +193,12 @@ export const BookingForm: React.FC<BookingFormProps> = ({ variant = 'card' }) =>
             
             {/* Vehicle Selection */}
             <div className="lg:col-span-4 bg-[#fff9eb] border border-[#200f07]/12 hover:border-[#200f07]/70 focus-within:border-[#200f07] focus-within:ring-2 focus-within:ring-[#200f07]/15 rounded-xl p-2.5 sm:p-3 transition-[border-color,box-shadow] duration-150">
-              <label className="flex items-center gap-1.5 text-[10px] font-display font-bold uppercase tracking-wider text-[#200f07] mb-1">
+              <label htmlFor="bkf-bar-vehicle" className="flex items-center gap-1.5 text-[10px] font-display font-bold uppercase tracking-wider text-[#200f07] mb-1">
                 <Car className="w-3.5 h-3.5 text-[#200f07]" />
                 <span>Select Fleet Option</span>
               </label>
               <select
+                id="bkf-bar-vehicle"
                 value={formData.vehicle}
                 onChange={e => setFormData({ ...formData, vehicle: e.target.value })}
                 className="w-full bg-transparent text-xs sm:text-sm font-semibold text-[#200f07] focus:outline-none cursor-pointer"
@@ -209,11 +214,12 @@ export const BookingForm: React.FC<BookingFormProps> = ({ variant = 'card' }) =>
 
             {/* Name */}
             <div className="lg:col-span-2 bg-[#fff9eb] border border-[#200f07]/12 hover:border-[#200f07]/70 focus-within:border-[#200f07] focus-within:ring-2 focus-within:ring-[#200f07]/15 rounded-xl p-2.5 sm:p-3 transition-[border-color,box-shadow] duration-150">
-              <label className="flex items-center gap-1.5 text-[10px] font-display font-bold uppercase tracking-wider text-[#200f07] mb-1">
+              <label htmlFor="bkf-bar-name" className="flex items-center gap-1.5 text-[10px] font-display font-bold uppercase tracking-wider text-[#200f07] mb-1">
                 <User className="w-3.5 h-3.5 text-[#200f07]" />
                 <span>Your Name</span>
               </label>
               <input
+                id="bkf-bar-name"
                 type="text"
                 placeholder="e.g. Ramesh K."
                 value={formData.name}
@@ -224,11 +230,12 @@ export const BookingForm: React.FC<BookingFormProps> = ({ variant = 'card' }) =>
 
             {/* Phone / WhatsApp */}
             <div className="lg:col-span-3 bg-[#fff9eb] border border-[#200f07]/12 hover:border-[#200f07]/70 focus-within:border-[#200f07] focus-within:ring-2 focus-within:ring-[#200f07]/15 rounded-xl p-2.5 sm:p-3 transition-[border-color,box-shadow] duration-150">
-              <label className="flex items-center gap-1.5 text-[10px] font-display font-bold uppercase tracking-wider text-[#200f07] mb-1">
+              <label htmlFor="bkf-bar-phone" className="flex items-center gap-1.5 text-[10px] font-display font-bold uppercase tracking-wider text-[#200f07] mb-1">
                 <Phone className="w-3.5 h-3.5 text-[#200f07]" />
                 <span>Phone / WhatsApp *</span>
               </label>
               <input
+                id="bkf-bar-phone"
                 type="tel"
                 required
                 placeholder="+91 98XXX XXXXX"
@@ -298,12 +305,13 @@ export const BookingForm: React.FC<BookingFormProps> = ({ variant = 'card' }) =>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
           {/* Name */}
           <div>
-            <label className="block text-[11px] font-display font-bold text-[#200f07] uppercase tracking-wider mb-1">
+            <label htmlFor="bkf-card-name" className="block text-[11px] font-display font-bold text-[#200f07] uppercase tracking-wider mb-1">
               Your Name *
             </label>
             <div className="relative">
               <User className="w-3.5 h-3.5 text-[#200f07]/70 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
               <input
+                id="bkf-card-name"
                 type="text"
                 required
                 placeholder="e.g. Ramesh Kulkarni"
@@ -316,12 +324,13 @@ export const BookingForm: React.FC<BookingFormProps> = ({ variant = 'card' }) =>
 
           {/* Phone */}
           <div>
-            <label className="block text-[11px] font-display font-bold text-[#200f07] uppercase tracking-wider mb-1">
+            <label htmlFor="bkf-card-phone" className="block text-[11px] font-display font-bold text-[#200f07] uppercase tracking-wider mb-1">
               Phone / WhatsApp *
             </label>
             <div className="relative">
               <Phone className="w-3.5 h-3.5 text-[#200f07]/70 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
               <input
+                id="bkf-card-phone"
                 type="tel"
                 required
                 placeholder="+91 98XXX XXXXX"
@@ -334,12 +343,13 @@ export const BookingForm: React.FC<BookingFormProps> = ({ variant = 'card' }) =>
 
           {/* Vehicle */}
           <div>
-            <label className="block text-[11px] font-display font-bold text-[#200f07] uppercase tracking-wider mb-1">
+            <label htmlFor="bkf-card-vehicle" className="block text-[11px] font-display font-bold text-[#200f07] uppercase tracking-wider mb-1">
               Select Vehicle
             </label>
             <div className="relative">
               <Car className="w-3.5 h-3.5 text-[#200f07]/70 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
               <select
+                id="bkf-card-vehicle"
                 value={formData.vehicle}
                 onChange={e => setFormData({ ...formData, vehicle: e.target.value })}
                 className="w-full pl-8 pr-3 py-2 text-xs bg-[#fff9eb]/40 border border-[#200f07]/15 rounded-lg focus:outline-none focus:border-[#200f07] focus:bg-[#fff9eb] transition-colors cursor-pointer"
@@ -356,12 +366,13 @@ export const BookingForm: React.FC<BookingFormProps> = ({ variant = 'card' }) =>
 
           {/* Pickup */}
           <div>
-            <label className="block text-[11px] font-display font-bold text-[#200f07] uppercase tracking-wider mb-1">
+            <label htmlFor="bkf-card-pickup" className="block text-[11px] font-display font-bold text-[#200f07] uppercase tracking-wider mb-1">
               Pickup Point
             </label>
             <div className="relative">
               <MapPin className="w-3.5 h-3.5 text-[#200f07]/70 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
               <input
+                id="bkf-card-pickup"
                 type="text"
                 placeholder="Hubli Railway Station / Airport / Home"
                 value={formData.pickup}
@@ -373,12 +384,13 @@ export const BookingForm: React.FC<BookingFormProps> = ({ variant = 'card' }) =>
 
           {/* Travel Date */}
           <div>
-            <label className="block text-[11px] font-display font-bold text-[#200f07] uppercase tracking-wider mb-1">
+            <label htmlFor="bkf-card-date" className="block text-[11px] font-display font-bold text-[#200f07] uppercase tracking-wider mb-1">
               Travel Date *
             </label>
             <div className="relative">
               <Calendar className="w-3.5 h-3.5 text-[#200f07]/70 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
               <input
+                id="bkf-card-date"
                 type="date"
                 required
                 min={todayStr}
@@ -391,12 +403,13 @@ export const BookingForm: React.FC<BookingFormProps> = ({ variant = 'card' }) =>
 
           {/* Return Date */}
           <div>
-            <label className="block text-[11px] font-display font-bold text-[#200f07] uppercase tracking-wider mb-1">
+            <label htmlFor="bkf-card-return-date" className="block text-[11px] font-display font-bold text-[#200f07] uppercase tracking-wider mb-1">
               Return Date (If Round-Trip)
             </label>
             <div className="relative">
               <Calendar className="w-3.5 h-3.5 text-[#200f07]/70 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
               <input
+                id="bkf-card-return-date"
                 type="date"
                 min={formData.date || todayStr}
                 value={formData.returnDate}
@@ -409,10 +422,11 @@ export const BookingForm: React.FC<BookingFormProps> = ({ variant = 'card' }) =>
 
         {/* Requirements */}
         <div>
-          <label className="block text-[11px] font-display font-bold text-[#200f07] uppercase tracking-wider mb-1">
+          <label htmlFor="bkf-card-requirements" className="block text-[11px] font-display font-bold text-[#200f07] uppercase tracking-wider mb-1">
             Destination &amp; Specific Travel Requirements
           </label>
           <input
+            id="bkf-card-requirements"
             type="text"
             placeholder="e.g. Round trip to Dandeli with 6 family members, starting 6:00 AM..."
             value={formData.requirements}

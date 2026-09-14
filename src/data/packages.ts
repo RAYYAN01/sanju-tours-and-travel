@@ -45,7 +45,7 @@ export const PACKAGES: Package[] = [
       'Aihole experimental temple architecture complex',
       'Local authentic North Karnataka Jolada Roti meals'
     ],
-    vehicleRecommendation: 'Dzire / Ertiga / 12-17 Seater Tempo Traveller',
+    vehicleRecommendation: 'Swift Dzire / Maruti Ertiga / 12-Seater Tempo Traveller',
     pricingLabel: 'Custom quote based on group size',
     imageUrl: '/assets/destination_badami.jpeg'
   },
@@ -62,7 +62,7 @@ export const PACKAGES: Package[] = [
       'Sunset hike up Matanga Hill / Hemakuta Hill',
       'Tungabhadra River traditional coracle boat cruise'
     ],
-    vehicleRecommendation: 'Toyota Innova Crysta or Force Urbania 17 Seater',
+    vehicleRecommendation: 'Toyota Innova Crysta or 12-Seater Tempo Traveller',
     pricingLabel: 'Custom quote based on group size',
     imageUrl: '/assets/packages_hero.jpeg',
     featured: true
@@ -80,7 +80,7 @@ export const PACKAGES: Package[] = [
       'Honavar Sharavathi River boating boardwalk',
       'Mirjan Fort historical walk'
     ],
-    vehicleRecommendation: 'Innova Crysta / 17-Seater Tempo Traveller',
+    vehicleRecommendation: 'Innova Crysta / 12-Seater Tempo Traveller',
     pricingLabel: 'Custom quote based on group size',
     imageUrl: '/assets/destination_gokarna.jpeg'
   }

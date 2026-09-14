@@ -69,7 +69,7 @@ export const FAQAccordion: React.FC = () => {
           {visibleFaqs.map((faq, idx) => {
             const isOpen = openIdx === idx;
             return (
-              <StaggerItem key={idx} y={14}>
+              <StaggerItem key={faq.question} y={14}>
                 <div className="card-editorial overflow-hidden hover:!translate-y-0">
                   <button
                     type="button"

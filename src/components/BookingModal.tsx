@@ -120,10 +120,11 @@ export const BookingModal: React.FC = () => {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <div>
-                  <label className="block text-[11px] font-bold text-[#200f07] uppercase tracking-wider mb-1">
+                  <label htmlFor="bkm-name" className="block text-[11px] font-bold text-[#200f07] uppercase tracking-wider mb-1">
                     Your Name *
                   </label>
                   <input
+                    id="bkm-name"
                     type="text"
                     required
                     placeholder="e.g. Ramesh Kulkarni"
@@ -133,10 +134,11 @@ export const BookingModal: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-[11px] font-bold text-[#200f07] uppercase tracking-wider mb-1">
+                  <label htmlFor="bkm-phone" className="block text-[11px] font-bold text-[#200f07] uppercase tracking-wider mb-1">
                     Phone / WhatsApp *
                   </label>
                   <input
+                    id="bkm-phone"
                     type="tel"
                     required
                     placeholder="+91 98XXX XXXXX"
@@ -148,10 +150,11 @@ export const BookingModal: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-[11px] font-bold text-[#200f07] uppercase tracking-wider mb-1">
+                <label htmlFor="bkm-vehicle" className="block text-[11px] font-bold text-[#200f07] uppercase tracking-wider mb-1">
                   Preferred Vehicle
                 </label>
                 <select
+                  id="bkm-vehicle"
                   value={formData.vehicle}
                   onChange={e => setFormData({ ...formData, vehicle: e.target.value })}
                   className="w-full px-3 py-2 text-xs bg-[#fff9eb] border border-[#200f07]/15 rounded-lg focus:outline-none focus:border-[#200f07] focus:ring-2 focus:ring-[#200f07]/15"
@@ -167,10 +170,11 @@ export const BookingModal: React.FC = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <div>
-                  <label className="block text-[11px] font-bold text-[#200f07] uppercase tracking-wider mb-1">
+                  <label htmlFor="bkm-pickup" className="block text-[11px] font-bold text-[#200f07] uppercase tracking-wider mb-1">
                     Pickup Location
                   </label>
                   <input
+                    id="bkm-pickup"
                     type="text"
                     placeholder="e.g. Hubli Railway Station / Airport"
                     value={formData.pickup}
@@ -179,10 +183,11 @@ export const BookingModal: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-[11px] font-bold text-[#200f07] uppercase tracking-wider mb-1">
+                  <label htmlFor="bkm-destination" className="block text-[11px] font-bold text-[#200f07] uppercase tracking-wider mb-1">
                     Destination
                   </label>
                   <input
+                    id="bkm-destination"
                     type="text"
                     placeholder="e.g. Dandeli / Goa / Local"
                     value={formData.destination}
@@ -194,10 +199,11 @@ export const BookingModal: React.FC = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <div>
-                  <label className="block text-[11px] font-bold text-[#200f07] uppercase tracking-wider mb-1">
+                  <label htmlFor="bkm-date" className="block text-[11px] font-bold text-[#200f07] uppercase tracking-wider mb-1">
                     Travel Date *
                   </label>
                   <input
+                    id="bkm-date"
                     type="date"
                     required
                     min={todayStr}
@@ -207,10 +213,11 @@ export const BookingModal: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-[11px] font-bold text-[#200f07] uppercase tracking-wider mb-1">
+                  <label htmlFor="bkm-return-date" className="block text-[11px] font-bold text-[#200f07] uppercase tracking-wider mb-1">
                     Return Date (Optional)
                   </label>
                   <input
+                    id="bkm-return-date"
                     type="date"
                     min={formData.date || todayStr}
                     value={formData.returnDate}
@@ -221,10 +228,11 @@ export const BookingModal: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-[11px] font-bold text-[#200f07] uppercase tracking-wider mb-1">
+                <label htmlFor="bkm-requirements" className="block text-[11px] font-bold text-[#200f07] uppercase tracking-wider mb-1">
                   Specific Requirements (Optional)
                 </label>
                 <textarea
+                  id="bkm-requirements"
                   rows={2}
                   placeholder="Flight timing, passenger count, luggage volume, or special requests..."
                   value={formData.requirements}

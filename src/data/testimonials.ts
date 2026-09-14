@@ -12,7 +12,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: '1',
     name: 'Ramesh Kulkarni',
-    trip: 'Family Trip to Dandeli (17 Seater Tempo)',
+    trip: 'Family Trip to Dandeli (12 Seater Tempo)',
     rating: 5,
     comment: 'Booking was straightforward and the driver arrived 15 minutes early at Hubli Railway Station. The Tempo Traveller was spotless and handled the ghat curves to Dandeli smoothly. Fair per-km pricing with no surprises.',
     initials: 'RK',
@@ -30,9 +30,9 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: '3',
     name: 'Deepak Rao',
-    trip: 'Corporate Offsite to Goa (25 Seater Bus)',
+    trip: 'Corporate Offsite to Goa (33 Seater Coach)',
     rating: 5,
-    comment: 'Booked a 25 seater mini bus for our software company team outing to South Goa from Hubli. The bus was very clean with strong AC and comfortable reclining seats. Driver had exceptional highway etiquette.',
+    comment: 'Booked the 33-seater tourist coach for our software company team outing to South Goa from Hubli. The bus was very clean with strong AC and comfortable reclining seats. Driver had exceptional highway etiquette.',
     initials: 'DR',
     location: 'Navanagar, Hubli'
   },
