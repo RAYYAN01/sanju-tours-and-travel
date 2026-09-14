@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { Phone, MessageSquare, MapPin, Clock, ShieldCheck, ArrowUpRight, Zap } from 'lucide-react';
+import { Phone, MessageSquare, MapPin, Clock, ShieldCheck, ArrowUpRight, Zap, Star } from 'lucide-react';
 import { BookingForm } from '../components/BookingForm';
-import { BUSINESS_PHONE_DISPLAY, BUSINESS_ADDRESS, PHONE_TEL_HREF, CALL_ARIA_LABEL, whatsappHref } from '../utils/whatsapp';
+import { BUSINESS_PHONE_DISPLAY, BUSINESS_ADDRESS, BUSINESS_GBP_URL, PHONE_TEL_HREF, CALL_ARIA_LABEL, whatsappHref } from '../utils/whatsapp';
 import { Reveal, StaggerGroup, StaggerItem } from '../components/motion/Reveal';
 import { Breadcrumb } from '../components/Breadcrumb';
 
@@ -230,6 +230,16 @@ export const Contact: React.FC = () => {
                     referrerPolicy="no-referrer-when-downgrade"
                   />
                 </div>
+                <a
+                  href={BUSINESS_GBP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 flex items-center justify-center gap-1.5 text-xs font-display font-bold uppercase tracking-wider text-[#200f07] hover:text-[#8fae52] transition-colors"
+                >
+                  <Star className="w-3.5 h-3.5 text-[#8fae52]" />
+                  Find Us &amp; Leave a Review on Google Maps
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
               </div>
             </Reveal>
 

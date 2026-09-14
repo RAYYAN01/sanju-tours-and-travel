@@ -26,6 +26,8 @@ const Contact = lazy(() => import('./pages/Contact').then(m => ({ default: m.Con
 const Privacy = lazy(() => import('./pages/Privacy').then(m => ({ default: m.Privacy })));
 const RoutesHub = lazy(() => import('./pages/RoutesHub').then(m => ({ default: m.RoutesHub })));
 const RoutePage = lazy(() => import('./pages/RoutePage').then(m => ({ default: m.RoutePage })));
+const LocalAreasHub = lazy(() => import('./pages/LocalAreasHub').then(m => ({ default: m.LocalAreasHub })));
+const LocalAreaPage = lazy(() => import('./pages/LocalAreaPage').then(m => ({ default: m.LocalAreaPage })));
 
 const RouteFallback: React.FC = () => (
   <div className="min-h-[60vh] flex items-center justify-center" aria-hidden="true">
@@ -93,6 +95,8 @@ export const App: React.FC = () => {
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/routes" element={<RoutesHub />} />
                 <Route path="/routes/:slug" element={<RoutePage />} />
+                <Route path="/local" element={<LocalAreasHub />} />
+                <Route path="/local/:slug" element={<LocalAreaPage />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
             </Suspense>

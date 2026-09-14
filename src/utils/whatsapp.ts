@@ -3,6 +3,10 @@ export const BUSINESS_PHONE_DISPLAY = "+91 73381 48518";
 export const BUSINESS_NAME = "Sanju Tours & Travels";
 export const BUSINESS_ADDRESS = "P.B. Road, Opp. Siddhappilla Temple, Unkal, Hubli – 580031";
 export const BUSINESS_MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(BUSINESS_ADDRESS)}`;
+// The business's actual Google Business Profile listing (Maps share link) —
+// use this (not the generic search URL above) whenever linking to the real
+// GBP entity itself, e.g. "find us on Google" / "leave a review".
+export const BUSINESS_GBP_URL = 'https://share.google/dTxaYIWJ6e5n0hm3d';
 
 // Ready-to-use href for tel: links — always derived from the canonical dial
 // string, never re-parsed from the formatted display value.

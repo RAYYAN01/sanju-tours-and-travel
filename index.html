@@ -34,7 +34,8 @@
     <!-- Structured data. Kept static (not JS-injected) so crawlers and AI
          answer engines that don't run JavaScript still get it.
          NOTE: aggregateRating must reflect a real, verifiable review score
-         (e.g. Google Business Profile). Add profile URLs to sameAs.
+         (e.g. Google Business Profile). hasMap/sameAs point at the real GBP
+         listing; add Facebook/Instagram/JustDial URLs to sameAs if/when set up.
          The FAQ text below mirrors src/data/faqs.ts — keep them in sync. -->
     <script type="application/ld+json">
     {
@@ -64,7 +65,7 @@
         "latitude": 15.3647,
         "longitude": 75.1240
       },
-      "hasMap": "https://www.google.com/maps/search/?api=1&query=Sanju%20Tours%20%26%20Travels%2C%20Unkal%2C%20Hubballi",
+      "hasMap": "https://share.google/dTxaYIWJ6e5n0hm3d",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+91-73381-48518",
@@ -83,6 +84,13 @@
         { "@type": "City", "name": "Dharwad", "geo": { "@type": "GeoCoordinates", "latitude": 15.4589, "longitude": 75.0078 } },
         { "@type": "AdministrativeArea", "name": "Karnataka" },
         { "@type": "Place", "name": "Hubballi Airport (HBX)" },
+        { "@type": "Neighborhood", "name": "Unkal" },
+        { "@type": "Neighborhood", "name": "Navanagar, Hubballi" },
+        { "@type": "Neighborhood", "name": "Vidyanagar, Hubballi" },
+        { "@type": "Neighborhood", "name": "Gokul Road, Hubballi" },
+        { "@type": "Neighborhood", "name": "Keshwapur, Hubballi" },
+        { "@type": "Neighborhood", "name": "Old Hubli (Durgadbail)" },
+        { "@type": "Neighborhood", "name": "Deshpande Nagar, Hubballi" },
         { "@type": "Place", "name": "Goa" },
         { "@type": "Place", "name": "Dandeli" },
         { "@type": "Place", "name": "Badami" },
@@ -115,7 +123,7 @@
         "Hubli to Bengaluru taxi", "Hubli to Mysuru taxi", "Hubli to Mangaluru taxi",
         "Cab service across Karnataka"
       ],
-      "sameAs": []
+      "sameAs": ["https://share.google/dTxaYIWJ6e5n0hm3d"]
     }
     </script>
     <script type="application/ld+json">
@@ -273,6 +281,20 @@
           Popular tourist day trips: Hubli to Goa, Dandeli, Gokarna, Badami, Hampi and Jog Falls.
         </p>
 
+        <h2>Local cab service by area, Hubballi-Dharwad</h2>
+        <p>
+          We dispatch from our Unkal office to every major locality in the twin cities &mdash;
+          see <a href="/local">local area pages</a> for pickup details:
+        </p>
+        <ul>
+          <li><a href="/local/gokul-road-hubli-cab-service">Gokul Road</a> &mdash; the Hubballi Airport (HBX) locality</li>
+          <li><a href="/local/vidyanagar-hubli-cab-service">Vidyanagar</a> &mdash; nearest residential area to HBX</li>
+          <li><a href="/local/navanagar-hubli-cab-service">Navanagar</a> &mdash; on the Hubli-Dharwad corridor</li>
+          <li><a href="/local/old-hubli-cab-service">Old Hubli (Durgadbail)</a> &mdash; near the railway station &amp; bus stand</li>
+          <li><a href="/local/dharwad-cab-service">Dharwad</a> &mdash; our twin city, ~20 km away</li>
+          <li>Plus Unkal, Keshwapur and Deshpande Nagar &mdash; <a href="/local">see all areas</a></li>
+        </ul>
+
         <h2>Frequently asked questions</h2>
         <h3>How do I book a vehicle with Sanju Tours &amp; Travels?</h3>
         <p>Call or WhatsApp us on +91 73381 48518, or submit the booking form on this website. We confirm vehicle availability the same day and send an itemised quotation with the per-km rate, driver bata and daily kilometre minimum before you pay anything.</p>
@@ -294,6 +316,7 @@
           <a href="/destinations">Destinations</a> &middot;
           <a href="/packages">Tour packages</a> &middot;
           <a href="/routes">Karnataka routes</a> &middot;
+          <a href="/local">Local areas</a> &middot;
           <a href="/about">About</a> &middot;
           <a href="/contact">Contact</a> &middot;
           <a href="/privacy">Privacy Policy</a>

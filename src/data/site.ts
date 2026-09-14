@@ -65,9 +65,14 @@ export const PAGE_SEO: Record<string, PageSeo> = {
       'How Sanju Tours & Travels collects, uses and protects your data under India’s Digital Personal Data Protection Act, 2023.',
   },
   '/routes': {
-    title: 'Outstation Cab Routes Across Karnataka | Sanju Tours & Travels',
+    title: 'Outstation Cab Routes Across Karnataka | Sanju Tours',
     description:
       'Book a cab from Hubli to Bengaluru, Mysuru, Mangaluru, Belagavi, Hampi and more — real distances, drive times and per-km rates.',
+  },
+  '/local': {
+    title: 'Cab Service in Hubballi-Dharwad by Locality',
+    description:
+      'Local taxi pickups across Hubballi and Dharwad — Unkal, Navanagar, Gokul Road, Vidyanagar, Keshwapur, Old Hubli and more.',
   },
 };
 
@@ -81,6 +86,7 @@ export const PAGE_CRUMB: Record<string, string> = {
   '/contact': 'Contact',
   '/privacy': 'Privacy Policy',
   '/routes': 'Popular Routes',
+  '/local': 'Local Areas',
 };
 
 // Routes whose hero sits full-bleed behind the navbar — these get the
@@ -94,4 +100,5 @@ export const TRANSPARENT_HERO_ROUTES = [
   '/packages',
   '/contact',
   '/routes',
+  '/local',
 ];

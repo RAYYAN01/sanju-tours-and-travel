@@ -3,6 +3,7 @@ import { SITE_URL } from '../data/site';
 import { VEHICLES } from '../data/vehicles';
 import { SERVICES } from '../data/services';
 import { CAB_ROUTES, estimateFare } from '../data/routes';
+import { LOCAL_AREAS } from '../data/localities';
 
 /**
  * Enhancement schema for JS-capable crawlers: the per-vehicle pricing
@@ -97,9 +98,21 @@ function buildGraph() {
     };
   });
 
+  // One Service node per in-city locality — same pattern as routes: a
+  // service area within the one business, never a fabricated branch.
+  const localAreaServices = LOCAL_AREAS.map((a) => ({
+    '@type': 'Service',
+    '@id': `${SITE_URL}/local/${a.slug}#service`,
+    name: `Cab Service in ${a.name}, ${a.city}`,
+    description: a.description,
+    serviceType: 'Local Taxi',
+    provider: { '@id': BUSINESS_ID },
+    areaServed: { '@type': 'Place', name: `${a.name}, ${a.city}` },
+  }));
+
   return {
     '@context': 'https://schema.org',
-    '@graph': [fleetCatalog, ...services, ...routeServices],
+    '@graph': [fleetCatalog, ...services, ...routeServices, ...localAreaServices],
   };
 }
 

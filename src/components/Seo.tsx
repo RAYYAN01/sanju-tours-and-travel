@@ -9,6 +9,7 @@ import {
   BUSINESS_GEO,
 } from '../data/site';
 import { getCabRoute } from '../data/routes';
+import { getLocalArea } from '../data/localities';
 
 /**
  * Head manager for the SPA — no external dependency.
@@ -43,18 +44,26 @@ export const Seo: React.FC = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Dynamic route-detail pages (/routes/:slug) build their own title/
-    // description/breadcrumb from the route data instead of the static map.
+    // Dynamic detail pages build their own title/description/breadcrumb/geo
+    // from data instead of the static PAGE_SEO map: /routes/:slug (outstation
+    // routes) and /local/:slug (in-city service areas).
     const routeMatch = pathname.match(/^\/routes\/([^/]+)$/);
     const route = routeMatch ? getCabRoute(routeMatch[1]) : undefined;
+    const areaMatch = pathname.match(/^\/local\/([^/]+)$/);
+    const area = areaMatch ? getLocalArea(areaMatch[1]) : undefined;
 
-    const path = route ? pathname : PAGE_SEO[pathname] ? pathname : '/';
+    const path = route || area ? pathname : PAGE_SEO[pathname] ? pathname : '/';
     const seo = route
       ? {
           title: `Hubli to ${route.shortCity} Taxi & Cab Service | Sanju Tours & Travels`,
           description: `Book a cab from Hubli to ${route.city} — ${route.distanceKm} km, ${route.durationLabel} via ${route.highway}. Transparent per-km rates, 24/7 dispatch.`,
         }
-      : PAGE_SEO[path];
+      : area
+        ? {
+            title: `Cab Service in ${area.name}, ${area.city} | Sanju Tours & Travels`,
+            description: `Taxi pickups and drops in ${area.name}, ${area.city}. ${area.distanceNote} Call or WhatsApp for instant booking.`,
+          }
+        : PAGE_SEO[path];
     const canonical = path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`;
 
     document.title = seo.title;
@@ -75,11 +84,15 @@ export const Seo: React.FC = () => {
 
     // Geo meta tags — active per page, not a fixed copy-paste. Every page
     // defaults to the business's own location; a route page instead points
-    // at its destination city, since that's the place the page is actually
-    // about, and updates the ICBM pair to match.
+    // at its destination city (real published coordinates), since that's
+    // the place the page is actually about. Local-area pages stay on the
+    // business's own coordinates — they're all within the same metro and
+    // we don't have verified sub-locality coordinates to substitute.
     const geo = route
       ? { placename: `Hubballi to ${route.shortCity}, Karnataka`, region: BUSINESS_GEO.region, lat: route.lat, lng: route.lng }
-      : BUSINESS_GEO;
+      : area
+        ? { placename: `${area.name}, ${area.city}, Karnataka`, region: BUSINESS_GEO.region, lat: BUSINESS_GEO.lat, lng: BUSINESS_GEO.lng }
+        : BUSINESS_GEO;
     upsertMeta('name', 'geo.region', geo.region);
     upsertMeta('name', 'geo.placename', geo.placename);
     upsertMeta('name', 'geo.position', `${geo.lat};${geo.lng}`);
@@ -95,12 +108,18 @@ export const Seo: React.FC = () => {
           { name: 'Popular Routes', item: `${SITE_URL}/routes` },
           { name: `Hubli to ${route.shortCity}`, item: canonical },
         ]
-      : path !== '/' && PAGE_CRUMB[path]
+      : area
         ? [
             { name: 'Home', item: `${SITE_URL}/` },
-            { name: PAGE_CRUMB[path], item: canonical },
+            { name: 'Local Areas', item: `${SITE_URL}/local` },
+            { name: area.name, item: canonical },
           ]
-        : null;
+        : path !== '/' && PAGE_CRUMB[path]
+          ? [
+              { name: 'Home', item: `${SITE_URL}/` },
+              { name: PAGE_CRUMB[path], item: canonical },
+            ]
+          : null;
 
     if (trail) {
       const crumb = {
